@@ -5,36 +5,35 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="theme-color" content="#07111f" />
-<title>麻雀プロ試験データベース v2.5</title>
+<title>麻雀プロ試験データベース v2.7</title>
 <style>
 :root{--bg:#07111f;--card:#0e1c2e;--line:#294765;--text:#f7fbff;--muted:#9fb2c8;--accent:#32c4f4;--ok:#54d58c;--danger:#ff6b7a;--warn:#ffcf5a}
-*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#07111f,#0a1625 45%,#07111f);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}.wrap{max-width:860px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 16px 48px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.title{font-size:24px;font-weight:900}.ver{font-size:12px;background:var(--accent);color:#07111f;padding:6px 10px;border-radius:99px;font-weight:900}.sub,.note{color:var(--muted);line-height:1.55}.hero{background:linear-gradient(135deg,#10243b,#0b1a2c);border:1px solid #315374;border-radius:22px;padding:18px;margin:14px 0}.hero h2{margin:0 0 8px}.hero .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}.step{background:#091725;border:1px solid #294765;border-radius:14px;padding:12px;text-align:center;font-size:13px}.step b{display:block;font-size:22px;color:var(--accent);margin-bottom:4px}.card{background:rgba(14,28,46,.95);border:1px solid var(--line);border-radius:22px;padding:18px;margin:14px 0;box-shadow:0 12px 30px rgba(0,0,0,.18)}h2{font-size:20px;margin:0 0 14px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.field{display:flex;flex-direction:column;gap:6px;flex:1;min-width:150px}.field label{font-size:12px;color:var(--muted);font-weight:700}.input,.select,.textarea{width:100%;border:1px solid #315374;background:#091725;color:#fff;border-radius:12px;padding:12px;font-size:16px}.textarea{min-height:90px;resize:vertical}.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.btn,.linkbtn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:14px;padding:13px 15px;font-weight:900;font-size:15px;text-decoration:none}.btn{background:#1d3858;color:#fff}.btn.primary{background:var(--accent);color:#07111f}.btn.ok{background:#17482f}.btn.danger{background:#4a1c26}.btn:disabled{opacity:.45}.linkbtn{background:#16304d;color:#dff5ff;border:1px solid #315374}.sectionTitle{display:flex;align-items:center;gap:10px}.num{width:32px;height:32px;border-radius:50%;background:var(--accent);color:#07111f;font-weight:900;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}.hand{display:flex;flex-wrap:wrap;gap:7px;min-height:78px;align-items:flex-end}.tile{width:44px;height:66px;border-radius:8px;background:linear-gradient(180deg,#fff,#f2f4f7);color:#111;display:flex;align-items:center;justify-content:center;font-size:29px;border:2px solid #d9e1e8;position:relative}.tile small{position:absolute;bottom:3px;left:0;right:0;text-align:center;font-size:8px;color:#65707b}.grid{display:grid;grid-template-columns:repeat(9,1fr);gap:6px}.sel{padding:7px 1px;background:#fff;color:#111;border:0;border-radius:8px;min-height:48px;font-size:24px}.count{font-size:28px;font-weight:900}.muted{color:var(--muted)}.result{padding:14px;border-radius:16px;background:#091725;border:1px solid #315374;margin-top:12px}.big{font-size:28px;font-weight:900}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.chip{padding:9px 11px;border:1px solid #315374;border-radius:12px;background:#0b1a2c}.explain{padding:14px;border-left:4px solid var(--accent);background:#0a1727;border-radius:12px;line-height:1.65}.list{display:grid;gap:10px}.item{padding:13px;border:1px solid #294765;border-radius:14px;background:#0a1727}.item .meta{font-size:12px;color:#8fa6bd}.item .actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.mini{padding:8px 10px;font-size:13px;border-radius:10px}.hidden{display:none!important}.success{border:1px solid #1f7a4d;color:#bdf8d7;background:#0b2519;padding:12px;border-radius:12px;margin-top:12px}.footer{text-align:center;color:#7890a8;font-size:12px;margin-top:20px}@media(max-width:520px){.hero .steps{grid-template-columns:1fr}.grid{gap:4px}.sel{font-size:22px}.tile{width:40px;height:61px}}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#07111f,#0a1625 45%,#07111f);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}.wrap{max-width:860px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 16px 48px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.title{font-size:24px;font-weight:900}.ver{font-size:12px;background:var(--accent);color:#07111f;padding:6px 10px;border-radius:99px;font-weight:900}.sub,.note{color:var(--muted);line-height:1.55}.quickbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0 14px}.quickbar .btn{flex:1;min-width:160px}.guide{margin:0 0 12px}.guide summary{cursor:pointer;color:#cbe8ff;font-weight:800;font-size:13px}.guide p{margin:8px 0 0;color:var(--muted);font-size:13px;line-height:1.5}.card{background:rgba(14,28,46,.95);border:1px solid var(--line);border-radius:22px;padding:18px;margin:14px 0;box-shadow:0 12px 30px rgba(0,0,0,.18)}h2{font-size:20px;margin:0 0 14px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.field{display:flex;flex-direction:column;gap:6px;flex:1;min-width:150px}.field label{font-size:12px;color:var(--muted);font-weight:700}.input,.select,.textarea{width:100%;border:1px solid #315374;background:#091725;color:#fff;border-radius:12px;padding:12px;font-size:16px}.textarea{min-height:90px;resize:vertical}.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.btn,.linkbtn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:14px;padding:13px 15px;font-weight:900;font-size:15px;text-decoration:none}.btn{background:#1d3858;color:#fff}.btn.primary{background:var(--accent);color:#07111f}.btn.ok{background:#17482f}.btn.danger{background:#4a1c26}.btn:disabled{opacity:.45}.linkbtn{background:#16304d;color:#dff5ff;border:1px solid #315374}.sectionTitle{display:flex;align-items:center;gap:10px}.num{width:32px;height:32px;border-radius:50%;background:var(--accent);color:#07111f;font-weight:900;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}.hand{display:flex;flex-wrap:wrap;gap:7px;min-height:78px;align-items:flex-end}.tile{width:44px;height:66px;border-radius:8px;background:linear-gradient(180deg,#fff,#f2f4f7);color:#111;display:flex;align-items:center;justify-content:center;font-size:29px;border:2px solid #d9e1e8;position:relative}.tile small{position:absolute;bottom:3px;left:0;right:0;text-align:center;font-size:8px;color:#65707b}.grid{display:grid;grid-template-columns:repeat(9,1fr);gap:6px}.sel{padding:7px 1px;background:#fff;color:#111;border:0;border-radius:8px;min-height:48px;font-size:24px}.count{font-size:28px;font-weight:900}.muted{color:var(--muted)}.result{padding:14px;border-radius:16px;background:#091725;border:1px solid #315374;margin-top:12px}.big{font-size:28px;font-weight:900}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.chip{padding:9px 11px;border:1px solid #315374;border-radius:12px;background:#0b1a2c}.explain{padding:14px;border-left:4px solid var(--accent);background:#0a1727;border-radius:12px;line-height:1.65}.list{display:grid;gap:10px}.item{padding:13px;border:1px solid #294765;border-radius:14px;background:#0a1727}.item .meta{font-size:12px;color:#8fa6bd}.item .actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.mini{padding:8px 10px;font-size:13px;border-radius:10px}.hidden{display:none!important}.success{border:1px solid #1f7a4d;color:#bdf8d7;background:#0b2519;padding:12px;border-radius:12px;margin-top:12px}.footer{text-align:center;color:#7890a8;font-size:12px;margin-top:20px}@media(max-width:520px){.grid{gap:4px}.sel{font-size:22px}.tile{width:40px;height:61px}.quickbar .btn{min-width:0;flex:1 1 46%}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><div class="title">麻雀プロ試験データベース</div><div class="ver">v2.5</div></div>
-  <p class="sub">登録方法を3ステップに整理しました。まずは1問だけ登録して、保存できる流れを確認してください。</p>
-
-  <div class="hero">
-    <h2>過去問の登録方法</h2>
-    <div class="steps"><div class="step"><b>1</b>公式PDFを開く</div><div class="step"><b>2</b>問題番号を選び牌姿を入力</div><div class="step"><b>3</b>公式解答と解説を保存</div></div>
-    <div class="btns"><button id="startRegister" class="btn primary">＋ 過去問を1問登録する</button><button id="showSaved" class="btn">登録済み問題を見る</button></div>
-  </div>
+  <div class="top"><div class="title">麻雀プロ試験データベース</div><div class="ver">v2.7</div></div>
+  <div class="quickbar"><button id="startRegister" class="btn primary">＋ 過去問を登録</button><button id="showSaved" class="btn">登録済み問題</button></div>
+  <details class="guide"><summary>登録方法を見る</summary><p>団体・期・前期/後期を選ぶ → 公式問題を開く → 問題番号と牌姿を登録 → 解答・解説を保存、の順です。</p></details>
 
   <div id="registerArea">
     <section class="card">
       <div class="sectionTitle"><span class="num">1</span><h2>公式資料を開く</h2></div>
       <p class="note">団体を選ぶと、その団体が公式に公開しているプロ試験・過去問題ページへのリンクを表示します。問題本文や画像そのものはアプリにコピーしません。</p>
-      <div class="field"><label>団体名</label><select id="organization" class="select"><option value="">団体を選択</option><option value="日本プロ麻雀連盟">日本プロ麻雀連盟</option><option value="日本プロ麻雀協会">日本プロ麻雀協会</option><option value="最高位戦日本プロ麻雀協会">最高位戦日本プロ麻雀協会</option><option value="RMU">RMU</option></select></div>
-      <div id="officialLinks" class="result" style="margin-top:12px"><span class="muted">団体を選択すると公式リンクが表示されます。</span></div>
-      <div class="field" style="margin-top:10px"><label>この問題の公式資料URL（任意）</label><input id="sourceUrl" class="input" placeholder="個別PDFのURLを保存する場合はこちら"></div>
-      <div class="btns"><a id="openSource" class="linkbtn" href="#" target="_blank" rel="noopener">この問題の公式資料を開く</a></div>
+      <div class="row">
+        <div class="field"><label>団体名</label><select id="organization" class="select"><option value="">団体を選択</option><option value="日本プロ麻雀連盟">日本プロ麻雀連盟</option><option value="日本プロ麻雀協会">日本プロ麻雀協会</option><option value="最高位戦日本プロ麻雀協会">最高位戦日本プロ麻雀協会</option><option value="RMU">RMU</option></select></div>
+        <div class="field"><label>期</label><select id="period" class="select"><option value="">期を選択</option></select></div>
+        <div class="field"><label>前期 / 後期</label><select id="half" class="select"><option value="">選択</option><option value="前期">前期</option><option value="後期">後期</option></select></div>
+      </div>
+      <div id="officialLinks" class="result" style="margin-top:12px"><span class="muted">団体・期・前期/後期を選択すると、該当する公式問題リンクを表示し、公開PDFが特定できる場合は自動で開きます。</span></div>
+      <div class="field" style="margin-top:10px"><label>自動設定された公式資料URL</label><input id="sourceUrl" class="input" readonly placeholder="選択内容から自動設定します"></div>
+      <div class="btns"><a id="openSource" class="linkbtn" href="#" target="_blank" rel="noopener">公式問題を開く</a></div>
     </section>
 
     <section class="card">
       <div class="sectionTitle"><span class="num">2</span><h2>問題番号を選択して牌姿を入力</h2></div>
-      <div class="row"><div class="field"><label>試験名</label><input id="exam" class="input" placeholder="例：第50期後期プロ試験①"></div><div class="field"><label>問題番号</label><select id="qno" class="select"><option value="">問題番号を選択</option></select></div></div>
+      <div class="row"><div class="field"><label>試験名（自動表示）</label><input id="exam" class="input" readonly placeholder="上の団体・期・前後期から自動表示"></div><div class="field"><label>問題番号</label><select id="qno" class="select"><option value="">問題番号を選択</option></select></div></div>
       <div class="row" style="margin-top:10px"><div class="field"><label>カテゴリ</label><select id="category" class="select"><option>受け入れ</option><option>何切る</option><option>待ち牌</option><option>シャンテン</option><option>点数計算</option><option>その他</option></select></div><div class="field"><label>タグ（任意）</label><input id="tags" class="input" placeholder="例：1シャンテン, 受け入れ"></div></div>
       <div class="row" style="justify-content:space-between;margin-top:14px"><h2 style="margin:0;font-size:18px">牌姿</h2><div><span id="cnt" class="count">0</span><span class="muted">枚</span></div></div>
       <div id="hand" class="hand"><span class="muted">下の牌をタップして入力してください</span></div>
@@ -67,11 +66,46 @@
 const HON=['東','南','西','北','白','發','中'];
 const UNI={'1m':'🀇','2m':'🀈','3m':'🀉','4m':'🀊','5m':'🀋','6m':'🀌','7m':'🀍','8m':'🀎','9m':'🀏','1s':'🀐','2s':'🀑','3s':'🀒','4s':'🀓','5s':'🀔','6s':'🀕','7s':'🀖','8s':'🀗','9s':'🀘','1p':'🀙','2p':'🀚','3p':'🀛','4p':'🀜','5p':'🀝','6p':'🀞','7p':'🀟','8p':'🀠','9p':'🀡','1z':'🀀','2z':'🀁','3z':'🀂','4z':'🀃','5z':'🀆','6z':'🀅','7z':'🀄'};
 const JP={m:'萬',p:'筒',s:'索'}; const STORE='mahjongProDB_v22';
-const ORG_LINKS={
- '日本プロ麻雀連盟':[{label:'公式：プロテスト・過去問題',url:'https://www.ma-jan.or.jp/guide/%E3%83%97%E3%83%AD%E3%83%86%E3%82%B9%E3%83%88%E3%83%86%E3%82%B9%E3%83%88%E5%8E%9F%E7%A8%BF.html',note:'2010〜2012年度の過去問題掲載'}],
- '日本プロ麻雀協会':[{label:'公式：25期後期プロ試験・過去問題一覧',url:'https://npm2001.com/info/protest-25-2nd/',note:'25期前期、24期後期・前期などの麻雀問題PDFへのリンクあり'}],
- '最高位戦日本プロ麻雀協会':[{label:'公式：第51期前期プロテスト・過去問題一覧',url:'https://saikouisen.com/news/51zen_protest/',note:'第48期〜第50期の問題・解答PDFへのリンクあり'}],
- 'RMU':[{label:'公式：RMU入会案内',url:'https://rmu.jp/nyuukai',note:'筆記試験は点数計算・打牌選択。公式サイト上で公開過去問題は確認できないため、現時点では入会案内へのリンクを表示'}]
+const EXAM_SOURCES={
+ '最高位戦日本プロ麻雀協会':{
+   periods:[48,49,50],
+   exams:{
+     '48-前期':[{label:'公式問題PDF',url:'https://saikouisen.com/pdf/protest_48zenkiv1_mondai.pdf'}],
+     '48-後期':[{label:'公式問題PDF',url:'https://saikouisen.com/wordpress/wp-content/uploads/48kou_protest_mondai.pdf'}],
+     '49-前期':[{label:'公式問題PDF',url:'https://saikouisen.com/wordpress/wp-content/uploads/49zen_protest_mondai.pdf'}],
+     '49-後期':[{label:'公式問題PDF',url:'https://saikouisen.com/pdf/49kou_Protest_mondai.pdf'}],
+     '50-前期':[{label:'公式問題PDF',url:'https://saikouisen.com/pdf/50zen_Protest_mondai.pdf'}],
+     '50-後期':[{label:'公式問題PDF',url:'https://saikouisen.com/pdf/protest_50kou_1_mondai.pdf'}]
+   },fallback:'https://saikouisen.com/news/51zen_protest/'
+ },
+ '日本プロ麻雀協会':{
+   periods:[19,20,21,22,24,25],
+   exams:{
+     '25-前期':[
+       {label:'麻雀問題1 PDF',url:'https://npm2001.com/wp-content/uploads/98ee036cd6e68524d661eb1815fbeac3.pdf'},
+       {label:'麻雀問題2 PDF',url:'https://npm2001.com/wp-content/uploads/bd8d4eb2c2bf0e0cf132f8f39ec98162.pdf'},
+       {label:'麻雀問題3 PDF',url:'https://npm2001.com/wp-content/uploads/d5703ff20e9ece8e80b7e4fb355501af.pdf'}
+     ],
+     '24-後期':[
+       {label:'麻雀問題1 PDF',url:'https://npm2001.com/wp-content/uploads/b6d8f145ee98cabb98de7af9c03365b2.pdf'},
+       {label:'麻雀問題2 PDF',url:'https://npm2001.com/wp-content/uploads/976ed5b471f4d1d5ba94ac59044e0ff9.pdf'},
+       {label:'麻雀問題3 PDF',url:'https://npm2001.com/wp-content/uploads/6dab1b03419f7008458232863226ee60.pdf'}
+     ],
+     '24-前期':[
+       {label:'麻雀問題1 PDF',url:'https://npm2001.com/wp-content/uploads/24a_m1.pdf'},
+       {label:'麻雀問題2 PDF',url:'https://npm2001.com/wp-content/uploads/24a_m2.pdf'},
+       {label:'麻雀問題3 PDF',url:'https://npm2001.com/wp-content/uploads/24a_m3.pdf'}
+     ]
+   },fallback:'https://npm2001.com/info/protest-25-2nd/'
+ },
+ '日本プロ麻雀連盟':{
+   periods:[41,42],exams:{},fallback:'https://www.ma-jan.or.jp/guide/protest.html',
+   note:'連盟は公式プロテストページから科目別の公開ページへ移動する形式です。現在の公式ページでは第41期・第42期の過去問題リンクが案内されています。'
+ },
+ 'RMU':{
+   periods:[],exams:{},fallback:'https://rmu.jp/nyuukai',
+   note:'RMUは公式入会案内は確認できますが、公開過去問PDFは確認できていません。'
+ }
 };
 let hand=[],currentId=null,lastResult='',lastExplain=''; const $=s=>document.querySelector(s);
 function disp(t){if(t.endsWith('z'))return HON[+t[0]-1];return t[0]+JP[t[1]]} function glyph(t){return UNI[t]||'🀫'}
@@ -87,14 +121,42 @@ function buildPicker(){let html='';[['萬子','m'],['筒子','p'],['索子','s']
 function buildQuestionSelect(){const sel=$('#qno');let html='<option value="">問題番号を選択</option>';const subs=['','-①','-②','-③','-④','-⑤'];for(let n=1;n<=50;n++){for(const sub of subs){html+=`<option value="問題${n}${sub}">問題${n}${sub}</option>`}}sel.innerHTML=html;}
 function calculate(){const r=$('#result');if(hand.length===13){const u=ukeire(to34(hand));lastResult=`${u.base===0?'テンパイ':u.base+'シャンテン'} / ${u.arr.length}種${u.total}枚`;lastExplain=`現在は${u.base===0?'テンパイ':u.base+'シャンテン'}です。受け入れは${u.arr.length}種・最大${u.total}枚です。公式解答と照合するときは、種類数と枚数の両方を確認してください。`;r.innerHTML=`<div class="big">${u.base===0?'テンパイ':u.base+'シャンテン'}</div><p><b>${u.arr.length}種・${u.total}枚</b>の受け入れ</p><div class="chips">${u.arr.map(x=>`<div class="chip"><span style="font-size:24px">${glyph34(x.i)}</span> ${name34(x.i)}：${x.left}枚</div>`).join('')}</div>`}else if(hand.length===14){const opts=discardOptions(hand);const best=opts[0];lastResult=best?`${disp(best.discard)}切り / ${best.base===0?'テンパイ':best.base+'シャンテン'} / ${best.arr.length}種${best.total}枚`:'算出不可';lastExplain=best?`最上位候補は${disp(best.discard)}切りです。打牌後は${best.base===0?'テンパイ':best.base+'シャンテン'}、受け入れ${best.arr.length}種・最大${best.total}枚です。シャンテン数を維持した候補の中で受け入れを比較しています。`:'算出できませんでした。';r.innerHTML=`<div class="big">何切る分析</div><div class="chips">${opts.slice(0,6).map((o,i)=>`<div class="chip"><b>候補${i+1}：${glyph(o.discard)} ${disp(o.discard)}切り</b><br>${o.base===0?'テンパイ':o.base+'シャンテン'} / ${o.arr.length}種${o.total}枚</div>`).join('')}</div>`}$('#autoExplain').textContent=lastExplain}
 function dbLoad(){try{return JSON.parse(localStorage.getItem(STORE)||'[]')}catch(e){return[]}} function dbSave(a){localStorage.setItem(STORE,JSON.stringify(a))} function problemLabel(p){return `${p.organization||'団体未設定'}｜${p.exam||'試験未設定'}｜${p.qno||'番号未設定'}`}
-function renderOfficialLinks(){const org=$('#organization').value,box=$('#officialLinks');const links=ORG_LINKS[org]||[];box.innerHTML=links.length?links.map(x=>`<div style="margin:7px 0"><a class="linkbtn" href="${x.url}" target="_blank" rel="noopener">${x.label}</a><div class="note" style="margin-top:5px">${x.note}</div></div>`).join(''):'<span class="muted">団体を選択すると公式リンクが表示されます。</span>'}
+function buildPeriodOptions(){
+  const org=$('#organization').value, sel=$('#period'), cfg=EXAM_SOURCES[org];
+  sel.innerHTML='<option value="">期を選択</option>';
+  if(cfg&&cfg.periods.length) cfg.periods.slice().sort((a,b)=>b-a).forEach(n=>sel.insertAdjacentHTML('beforeend',`<option value="${n}">第${n}期</option>`));
+  $('#half').value=''; $('#exam').value=''; $('#sourceUrl').value=''; renderOfficialLinks(false); updateSource();
+}
+function derivedExamName(){
+  const org=$('#organization').value,p=$('#period').value,h=$('#half').value;
+  return org&&p&&h ? `${org} 第${p}期${h}プロ試験` : '';
+}
+function renderOfficialLinks(autoOpen=false){
+  const org=$('#organization').value,p=$('#period').value,h=$('#half').value,box=$('#officialLinks'),cfg=EXAM_SOURCES[org];
+  $('#exam').value=derivedExamName();
+  if(!org){box.innerHTML='<span class="muted">団体・期・前期/後期を選択してください。</span>';$('#sourceUrl').value='';updateSource();return}
+  if(!cfg){box.innerHTML='<span class="muted">公式資料情報がありません。</span>';return}
+  if(!p||!h){box.innerHTML=`<span class="muted">${cfg.note||'期と前期/後期を選択すると公式問題リンクを表示します。'}</span>`;$('#sourceUrl').value='';updateSource();return}
+  const key=`${p}-${h}`,links=cfg.exams[key]||[];
+  if(links.length){
+    $('#sourceUrl').value=links[0].url;
+    box.innerHTML=`<div><b>${derivedExamName()}</b></div>`+links.map(x=>`<div style="margin:8px 0"><a class="linkbtn" href="${x.url}" target="_blank" rel="noopener">${x.label}</a></div>`).join('')+(links.length>1?'<div class="note">この期は複数の麻雀問題PDFが公開されています。最初のPDFを自動で開き、他のPDFは上のボタンから開けます。</div>':'');
+    updateSource();
+    if(autoOpen){try{window.open(links[0].url,'_blank')}catch(e){}}
+  }else{
+    $('#sourceUrl').value=cfg.fallback||'';
+    box.innerHTML=`<div><b>${derivedExamName()}</b></div><div class="note" style="margin:7px 0">${cfg.note||'この組み合わせの直接PDF URLは確認できないため、公式の過去問題一覧ページを開きます。'}</div>${cfg.fallback?`<a class="linkbtn" href="${cfg.fallback}" target="_blank" rel="noopener">公式過去問題ページを開く</a>`:''}`;
+    updateSource();
+    if(autoOpen&&cfg.fallback){try{window.open(cfg.fallback,'_blank')}catch(e){}}
+  }
+}
 function updateSource(){const u=$('#sourceUrl').value.trim(),a=$('#openSource');a.href=u||'#';a.style.opacity=u?1:.45;a.onclick=u?null:(e=>e.preventDefault())}
-function reset(){currentId=null;hand=[];renderHand();lastResult='';lastExplain='';['exam','sourceUrl','tags','official','explanation'].forEach(id=>$('#'+id).value='');$('#organization').value='';renderOfficialLinks();$('#qno').value='';$('#category').value='受け入れ';$('#judgement').value='未判定';$('#result').innerHTML='<span class="muted">まず13枚または14枚の牌姿を入力して「牌姿を計算」を押してください。</span>';$('#autoExplain').innerHTML='<span class="muted">計算後に自動解説が表示されます。</span>';$('#deleteProblem').classList.add('hidden');$('#savedMsg').classList.add('hidden');updateSource();window.scrollTo({top:0,behavior:'smooth'})}
-function saveProblem(){if(!$('#organization').value||!$('#exam').value.trim()||!$('#qno').value.trim()){alert('「団体名」「試験名」「問題番号」を選択・入力してください。');return}if(!hand.length){alert('牌姿を入力してください。');return}const list=dbLoad(),id=currentId||('p_'+Date.now());const p={id,organization:$('#organization').value,exam:$('#exam').value.trim(),qno:$('#qno').value.trim(),category:$('#category').value,sourceUrl:$('#sourceUrl').value.trim(),tags:$('#tags').value.trim(),hand:[...hand],result:lastResult,autoExplain:lastExplain,resultHtml:$('#result').innerHTML,official:$('#official').value.trim(),explanation:$('#explanation').value.trim(),judgement:$('#judgement').value,updatedAt:Date.now()};const i=list.findIndex(x=>x.id===id);if(i>=0)list[i]=p;else list.push(p);dbSave(list);currentId=id;$('#deleteProblem').classList.remove('hidden');$('#savedMsg').classList.remove('hidden');renderList()}
+function reset(){currentId=null;hand=[];renderHand();lastResult='';lastExplain='';['sourceUrl','tags','official','explanation'].forEach(id=>$('#'+id).value='');$('#organization').value='';buildPeriodOptions();$('#period').value='';$('#half').value='';$('#exam').value='';renderOfficialLinks(false);$('#qno').value='';$('#category').value='受け入れ';$('#judgement').value='未判定';$('#result').innerHTML='<span class="muted">まず13枚または14枚の牌姿を入力して「牌姿を計算」を押してください。</span>';$('#autoExplain').innerHTML='<span class="muted">計算後に自動解説が表示されます。</span>';$('#deleteProblem').classList.add('hidden');$('#savedMsg').classList.add('hidden');updateSource();window.scrollTo({top:0,behavior:'smooth'})}
+function saveProblem(){if(!$('#organization').value||!$('#period').value||!$('#half').value||!$('#qno').value.trim()){alert('「団体名」「期」「前期/後期」「問題番号」を選択してください。');return}if(!hand.length){alert('牌姿を入力してください。');return}const list=dbLoad(),id=currentId||('p_'+Date.now());const p={id,organization:$('#organization').value,period:$('#period').value,half:$('#half').value,exam:$('#exam').value.trim(),qno:$('#qno').value.trim(),category:$('#category').value,sourceUrl:$('#sourceUrl').value.trim(),tags:$('#tags').value.trim(),hand:[...hand],result:lastResult,autoExplain:lastExplain,resultHtml:$('#result').innerHTML,official:$('#official').value.trim(),explanation:$('#explanation').value.trim(),judgement:$('#judgement').value,updatedAt:Date.now()};const i=list.findIndex(x=>x.id===id);if(i>=0)list[i]=p;else list.push(p);dbSave(list);currentId=id;$('#deleteProblem').classList.remove('hidden');$('#savedMsg').classList.remove('hidden');renderList()}
 function renderList(){const q=$('#search').value.trim().toLowerCase(),list=dbLoad().filter(p=>!q||[p.organization,p.exam,p.qno,p.tags,p.category].join(' ').toLowerCase().includes(q));$('#dbList').innerHTML=list.length?list.map(p=>`<div class="item"><b>${problemLabel(p)}</b><div class="meta">${p.category} / ${p.hand.length}枚 / ${p.judgement}</div><div style="font-size:26px;margin:6px 0">${p.hand.map(glyph).join(' ')}</div><div class="actions"><button class="btn mini" onclick="openProblem('${p.id}')">開く</button>${p.sourceUrl?`<a class="linkbtn mini" href="${p.sourceUrl}" target="_blank" rel="noopener">公式資料</a>`:''}</div></div>`).join(''):'<span class="muted">まだ問題は登録されていません。</span>'}
-window.openProblem=function(id){const p=dbLoad().find(x=>x.id===id);if(!p)return;currentId=id;$('#organization').value=p.organization||'';renderOfficialLinks();$('#exam').value=p.exam||'';$('#qno').value=p.qno||'';$('#category').value=p.category||'受け入れ';$('#sourceUrl').value=p.sourceUrl||'';$('#tags').value=p.tags||'';$('#official').value=p.official||'';$('#explanation').value=p.explanation||'';$('#judgement').value=p.judgement||'未判定';hand=[...(p.hand||[])];renderHand();lastResult=p.result||'';lastExplain=p.autoExplain||'';$('#result').innerHTML=p.resultHtml||'<span class="muted">「牌姿を計算」で再計算できます。</span>';$('#autoExplain').textContent=lastExplain||'「牌姿を計算」で自動解説を表示します。';$('#deleteProblem').classList.remove('hidden');$('#savedArea').classList.add('hidden');$('#registerArea').classList.remove('hidden');updateSource();window.scrollTo({top:0,behavior:'smooth'})}
+window.openProblem=function(id){const p=dbLoad().find(x=>x.id===id);if(!p)return;currentId=id;$('#organization').value=p.organization||'';buildPeriodOptions();$('#period').value=p.period||'';$('#half').value=p.half||'';renderOfficialLinks(false);$('#exam').value=p.exam||derivedExamName();$('#qno').value=p.qno||'';$('#category').value=p.category||'受け入れ';$('#sourceUrl').value=p.sourceUrl||'';$('#tags').value=p.tags||'';$('#official').value=p.official||'';$('#explanation').value=p.explanation||'';$('#judgement').value=p.judgement||'未判定';hand=[...(p.hand||[])];renderHand();lastResult=p.result||'';lastExplain=p.autoExplain||'';$('#result').innerHTML=p.resultHtml||'<span class="muted">「牌姿を計算」で再計算できます。</span>';$('#autoExplain').textContent=lastExplain||'「牌姿を計算」で自動解説を表示します。';$('#deleteProblem').classList.remove('hidden');$('#savedArea').classList.add('hidden');$('#registerArea').classList.remove('hidden');updateSource();window.scrollTo({top:0,behavior:'smooth'})}
 function del(){if(!currentId)return;if(!confirm('この問題を削除しますか？'))return;dbSave(dbLoad().filter(x=>x.id!==currentId));reset();renderList()}
-$('#startRegister').onclick=()=>{$('#savedArea').classList.add('hidden');$('#registerArea').classList.remove('hidden');reset()};$('#showSaved').onclick=()=>{$('#registerArea').classList.add('hidden');$('#savedArea').classList.remove('hidden');renderList();window.scrollTo({top:0,behavior:'smooth'})};$('#undo').onclick=()=>{hand.pop();renderHand()};$('#clear').onclick=()=>{hand=[];renderHand()};$('#calc').onclick=calculate;$('#sourceUrl').oninput=updateSource;$('#organization').onchange=renderOfficialLinks;$('#saveProblem').onclick=saveProblem;$('#resetProblem').onclick=reset;$('#deleteProblem').onclick=del;$('#search').oninput=renderList;
-buildQuestionSelect();buildPicker();renderHand();renderList();updateSource();renderOfficialLinks();
+$('#startRegister').onclick=()=>{$('#savedArea').classList.add('hidden');$('#registerArea').classList.remove('hidden');reset()};$('#showSaved').onclick=()=>{$('#registerArea').classList.add('hidden');$('#savedArea').classList.remove('hidden');renderList();window.scrollTo({top:0,behavior:'smooth'})};$('#undo').onclick=()=>{hand.pop();renderHand()};$('#clear').onclick=()=>{hand=[];renderHand()};$('#calc').onclick=calculate;$('#organization').onchange=buildPeriodOptions;$('#period').onchange=()=>{renderOfficialLinks(false)};$('#half').onchange=()=>{renderOfficialLinks(true)};$('#saveProblem').onclick=saveProblem;$('#resetProblem').onclick=reset;$('#deleteProblem').onclick=del;$('#search').oninput=renderList;
+buildQuestionSelect();buildPicker();renderHand();renderList();updateSource();buildPeriodOptions();renderOfficialLinks(false);
 </script>
 </body></html>
