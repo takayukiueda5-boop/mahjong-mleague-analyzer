@@ -2,18 +2,18 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover,user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="theme-color" content="#07111f" />
-<title>麻雀プロ試験データベース v3.0</title>
+<title>麻雀プロ試験データベース v3.1</title>
 <style>
 :root{--bg:#07111f;--card:#0e1c2e;--line:#294765;--text:#f7fbff;--muted:#9fb2c8;--accent:#32c4f4;--ok:#54d58c;--danger:#ff6b7a;--warn:#ffcf5a}
-*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#07111f,#0a1625 45%,#07111f);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}.wrap{max-width:860px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 16px 48px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.title{font-size:24px;font-weight:900}.ver{font-size:12px;background:var(--accent);color:#07111f;padding:6px 10px;border-radius:99px;font-weight:900}.sub,.note{color:var(--muted);line-height:1.55}.quickbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0 14px}.quickbar .btn{flex:1;min-width:160px}.guide{margin:0 0 12px}.guide summary{cursor:pointer;color:#cbe8ff;font-weight:800;font-size:13px}.guide p{margin:8px 0 0;color:var(--muted);font-size:13px;line-height:1.5}.card{background:rgba(14,28,46,.95);border:1px solid var(--line);border-radius:22px;padding:18px;margin:14px 0;box-shadow:0 12px 30px rgba(0,0,0,.18)}h2{font-size:20px;margin:0 0 14px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.field{display:flex;flex-direction:column;gap:6px;flex:1;min-width:150px}.field label{font-size:12px;color:var(--muted);font-weight:700}.input,.select,.textarea{width:100%;border:1px solid #315374;background:#091725;color:#fff;border-radius:12px;padding:12px;font-size:16px}.textarea{min-height:90px;resize:vertical}.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.btn,.linkbtn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:14px;padding:13px 15px;font-weight:900;font-size:15px;text-decoration:none}.btn{background:#1d3858;color:#fff}.btn.primary{background:var(--accent);color:#07111f}.btn.ok{background:#17482f}.btn.danger{background:#4a1c26}.btn:disabled{opacity:.45}.linkbtn{background:#16304d;color:#dff5ff;border:1px solid #315374}.sectionTitle{display:flex;align-items:center;gap:10px}.num{width:32px;height:32px;border-radius:50%;background:var(--accent);color:#07111f;font-weight:900;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}.hand{display:flex;flex-wrap:nowrap;gap:2px;min-height:72px;align-items:flex-end;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:4px 0 8px;scrollbar-width:thin}.hand .tile{flex:0 0 40px}.tile{width:40px;height:58px;border:0;background:transparent;padding:0;display:flex;align-items:center;justify-content:center;font-size:44px;line-height:1;position:relative;box-shadow:none}.tile small{display:none}.grid{display:grid;grid-template-columns:repeat(9,1fr);gap:4px}.sel{padding:0;background:transparent;border:0;border-radius:0;min-height:48px;font-size:39px;line-height:1;display:flex;align-items:center;justify-content:center}.mj{display:inline-block;line-height:1;text-shadow:0 1px 0 rgba(255,255,255,.45)}.mj.m{color:#c62828}.mj.p{color:#1565c0}.mj.s{color:#2e7d32}.mj.z{color:#111}.mj.z5{color:#1565c0}.mj.z7{color:#c62828}.mj.z6{color:#2e7d32}.mj.z1,.mj.z2,.mj.z3,.mj.z4{color:#263238}.count{font-size:28px;font-weight:900}.muted{color:var(--muted)}.result{padding:14px;border-radius:16px;background:#091725;border:1px solid #315374;margin-top:12px}.big{font-size:28px;font-weight:900}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.chip{padding:9px 11px;border:1px solid #315374;border-radius:12px;background:#0b1a2c}.explain{padding:14px;border-left:4px solid var(--accent);background:#0a1727;border-radius:12px;line-height:1.65}.list{display:grid;gap:10px}.item{padding:13px;border:1px solid #294765;border-radius:14px;background:#0a1727}.item .meta{font-size:12px;color:#8fa6bd}.item .actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.mini{padding:8px 10px;font-size:13px;border-radius:10px}.hidden{display:none!important}.success{border:1px solid #1f7a4d;color:#bdf8d7;background:#0b2519;padding:12px;border-radius:12px;margin-top:12px}.answerBox{margin-top:14px;padding:14px;border:1px solid #315374;border-radius:16px;background:#091725}.answerGrid{display:grid;grid-template-columns:repeat(9,1fr);gap:6px;margin-top:10px}.ansSel{padding:0;background:transparent;color:#111;border:2px solid transparent;border-radius:8px;min-height:46px;font-size:37px;line-height:1}.ansSel.selected{border-color:var(--accent);box-shadow:0 0 0 2px rgba(50,196,244,.25)}.feedback{margin-top:12px;padding:12px;border-radius:12px;background:#0a1727;border:1px solid #315374}.feedback.correct{border-color:#1f7a4d;color:#bdf8d7}.feedback.wrong{border-color:#8b2e3a;color:#ffc6cc}.adminDetails{margin-top:12px}.adminDetails summary{cursor:pointer;color:#cbe8ff;font-weight:800}.footer{text-align:center;color:#7890a8;font-size:12px;margin-top:20px}@media(max-width:520px){.grid{gap:3px}.sel{font-size:36px}.tile{width:38px;height:54px;font-size:41px}.hand .tile{flex-basis:38px;width:38px;height:54px}.quickbar .btn{min-width:0;flex:1 1 46%}}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#07111f,#0a1625 45%,#07111f);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}.wrap{max-width:860px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 16px 48px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.title{font-size:24px;font-weight:900}.ver{font-size:12px;background:var(--accent);color:#07111f;padding:6px 10px;border-radius:99px;font-weight:900}.sub,.note{color:var(--muted);line-height:1.55}.quickbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0 14px}.quickbar .btn{flex:1;min-width:160px}.guide{margin:0 0 12px}.guide summary{cursor:pointer;color:#cbe8ff;font-weight:800;font-size:13px}.guide p{margin:8px 0 0;color:var(--muted);font-size:13px;line-height:1.5}.card{background:rgba(14,28,46,.95);border:1px solid var(--line);border-radius:22px;padding:18px;margin:14px 0;box-shadow:0 12px 30px rgba(0,0,0,.18)}h2{font-size:20px;margin:0 0 14px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.field{display:flex;flex-direction:column;gap:6px;flex:1;min-width:150px}.field label{font-size:12px;color:var(--muted);font-weight:700}.input,.select,.textarea{width:100%;border:1px solid #315374;background:#091725;color:#fff;border-radius:12px;padding:12px;font-size:16px}.textarea{min-height:90px;resize:vertical}.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.btn,.linkbtn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:14px;padding:13px 15px;font-weight:900;font-size:15px;text-decoration:none}.btn{background:#1d3858;color:#fff}.btn.primary{background:var(--accent);color:#07111f}.btn.ok{background:#17482f}.btn.danger{background:#4a1c26}.btn:disabled{opacity:.45}.linkbtn{background:#16304d;color:#dff5ff;border:1px solid #315374}.sectionTitle{display:flex;align-items:center;gap:10px}.num{width:32px;height:32px;border-radius:50%;background:var(--accent);color:#07111f;font-weight:900;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}.hand{display:flex;flex-wrap:nowrap;gap:3px;min-height:72px;align-items:flex-end;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:4px 0 8px;scrollbar-width:thin}.hand .tile{flex:0 0 42px}.tile{width:42px;height:60px;border:0;background:transparent;padding:0;display:flex;align-items:center;justify-content:center;position:relative;box-shadow:none;touch-action:manipulation;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}.tile small{display:none}.grid{display:grid;grid-template-columns:repeat(9,1fr);gap:5px}.sel{padding:0;background:transparent;border:0;border-radius:0;min-height:50px;display:flex;align-items:center;justify-content:center;touch-action:manipulation;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}.mjFace{display:inline-flex;align-items:center;justify-content:center;width:40px;height:56px;line-height:1}.mjFace svg{display:block;width:100%;height:100%;filter:drop-shadow(0 1px 1px rgba(0,0,0,.18))}.btn,.linkbtn,.tab,.ansSel{touch-action:manipulation;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}.count{font-size:28px;font-weight:900}.muted{color:var(--muted)}.result{padding:14px;border-radius:16px;background:#091725;border:1px solid #315374;margin-top:12px}.big{font-size:28px;font-weight:900}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.chip{padding:9px 11px;border:1px solid #315374;border-radius:12px;background:#0b1a2c}.explain{padding:14px;border-left:4px solid var(--accent);background:#0a1727;border-radius:12px;line-height:1.65}.list{display:grid;gap:10px}.item{padding:13px;border:1px solid #294765;border-radius:14px;background:#0a1727}.item .meta{font-size:12px;color:#8fa6bd}.item .actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.mini{padding:8px 10px;font-size:13px;border-radius:10px}.hidden{display:none!important}.success{border:1px solid #1f7a4d;color:#bdf8d7;background:#0b2519;padding:12px;border-radius:12px;margin-top:12px}.answerBox{margin-top:14px;padding:14px;border:1px solid #315374;border-radius:16px;background:#091725}.answerGrid{display:grid;grid-template-columns:repeat(9,1fr);gap:6px;margin-top:10px}.ansSel{padding:1px;background:transparent;color:#111;border:2px solid transparent;border-radius:8px;min-height:50px;line-height:1;display:flex;align-items:center;justify-content:center}.ansSel.selected{border-color:var(--accent);box-shadow:0 0 0 2px rgba(50,196,244,.25)}.feedback{margin-top:12px;padding:12px;border-radius:12px;background:#0a1727;border:1px solid #315374}.feedback.correct{border-color:#1f7a4d;color:#bdf8d7}.feedback.wrong{border-color:#8b2e3a;color:#ffc6cc}.adminDetails{margin-top:12px}.adminDetails summary{cursor:pointer;color:#cbe8ff;font-weight:800}.footer{text-align:center;color:#7890a8;font-size:12px;margin-top:20px}@media(max-width:520px){.grid{gap:3px}.tile{width:40px;height:58px}.hand .tile{flex-basis:40px;width:40px;height:58px}.mjFace{width:38px;height:54px}.quickbar .btn{min-width:0;flex:1 1 46%}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><div class="title">麻雀プロ試験データベース</div><div class="ver">v3.0</div></div>
+  <div class="top"><div class="title">麻雀プロ試験データベース</div><div class="ver">v3.1</div></div>
   <div class="quickbar"><button id="startRegister" class="btn primary">＋ 過去問を登録</button><button id="showSaved" class="btn">登録済み問題</button></div>
   <details class="guide"><summary>登録方法を見る</summary><p>団体・期・前期/後期を選ぶ → 公式問題を開く → 問題番号と牌姿を登録 → 解答・解説を保存、の順です。</p></details>
 
@@ -121,21 +121,73 @@ const EXAM_SOURCES={
 let hand=[],currentId=null,lastResult='',lastExplain=''; const $=s=>document.querySelector(s);
 function disp(t){if(t.endsWith('z'))return HON[+t[0]-1];return t[0]+JP[t[1]]}
 function glyph(t){return UNI[t]||'🀫'}
-function suitClass(t){
-  if(!t)return 'z';
-  if(t.endsWith('m'))return 'm';
-  if(t.endsWith('p'))return 'p';
-  if(t.endsWith('s'))return 's';
-  if(t.endsWith('z'))return 'z z'+t[0];
-  return 'z';
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function tileSvg(t){
+  const n=Number(t[0]), suit=t[1];
+  const W=54,H=74;
+  const bg=`<rect x="1.5" y="1.5" width="51" height="71" rx="5" fill="#fbf7ea" stroke="#d7ccb3" stroke-width="1.6"/>`;
+  const red='#c62828', blue='#173b78', green='#157447', black='#111';
+  let body='';
+  if(suit==='m'){
+    const nums=['','一','二','三','四','伍','六','七','八','九'];
+    body+=`<text x="27" y="31" text-anchor="middle" font-size="23" font-weight="700" font-family="serif" fill="${black}">${nums[n]}</text>`;
+    body+=`<text x="27" y="58" text-anchor="middle" font-size="25" font-weight="800" font-family="serif" fill="${red}">萬</text>`;
+  }else if(suit==='p'){
+    const pos={
+      1:[[27,37,'r']],
+      2:[[27,23,'b'],[27,51,'b']],
+      3:[[18,20,'b'],[27,37,'r'],[36,54,'b']],
+      4:[[18,22,'b'],[36,22,'b'],[18,52,'b'],[36,52,'b']],
+      5:[[18,20,'b'],[36,20,'b'],[27,37,'r'],[18,54,'b'],[36,54,'b']],
+      6:[[18,18,'b'],[36,18,'b'],[18,37,'b'],[36,37,'b'],[18,56,'b'],[36,56,'b']],
+      7:[[27,14,'r'],[17,28,'b'],[37,28,'b'],[17,44,'b'],[37,44,'b'],[17,60,'b'],[37,60,'b']],
+      8:[[18,13,'b'],[36,13,'b'],[18,29,'b'],[36,29,'b'],[18,45,'b'],[36,45,'b'],[18,61,'b'],[36,61,'b']],
+      9:[[16,14,'b'],[27,14,'b'],[38,14,'b'],[16,37,'r'],[27,37,'r'],[38,37,'r'],[16,60,'b'],[27,60,'b'],[38,60,'b']]
+    };
+    for(const [x,y,c] of pos[n]||[]){
+      const col=c==='r'?red:blue;
+      body+=`<circle cx="${x}" cy="${y}" r="6.5" fill="none" stroke="${col}" stroke-width="2.3"/><circle cx="${x}" cy="${y}" r="2.1" fill="${col}"/>`;
+    }
+  }else if(suit==='s'){
+    const bamboo=(x,y,col=green)=>`<g stroke="${col}" stroke-width="3.1" stroke-linecap="round"><line x1="${x}" y1="${y-6}" x2="${x}" y2="${y+6}"/><line x1="${x-3}" y1="${y-3}" x2="${x+3}" y2="${y+3}"/><line x1="${x+3}" y1="${y-3}" x2="${x-3}" y2="${y+3}"/></g>`;
+    if(n===1){
+      body+=`<path d="M14 47 C17 28 25 17 34 18 C44 20 43 35 34 38 C29 40 28 49 29 57 C24 55 20 52 18 48 Z" fill="${green}"/><path d="M24 27 C31 20 37 22 40 27 C34 27 30 30 27 34 Z" fill="${red}"/><circle cx="34" cy="25" r="1.8" fill="${black}"/>`;
+    }else{
+      const patterns={
+        2:[[20,27],[34,47]],
+        3:[[27,17],[18,42],[36,53]],
+        4:[[18,23],[36,23],[18,51],[36,51]],
+        5:[[18,20],[36,20],[27,37,'r'],[18,55],[36,55]],
+        6:[[18,18],[36,18],[18,37],[36,37],[18,56],[36,56]],
+        7:[[27,15,'r'],[18,28],[36,28],[18,45],[36,45],[18,60],[36,60]],
+        8:[[18,14],[36,14],[18,30],[36,30],[18,46],[36,46],[18,62],[36,62]],
+        9:[[16,14],[27,14],[38,14],[16,37],[27,37,'r'],[38,37],[16,60],[27,60],[38,60]]
+      };
+      for(const a of patterns[n]||[]) body+=bamboo(a[0],a[1],a[2]==='r'?red:green);
+    }
+  }else{
+    const zText=['','東','南','西','北','','發','中'][n]||'';
+    if(n===5){
+      body+=`<rect x="13" y="16" width="28" height="42" rx="2" fill="none" stroke="${blue}" stroke-width="1.8" opacity=".65"/>`;
+    }else{
+      const col=n===6?green:n===7?red:black;
+      body+=`<text x="27" y="48" text-anchor="middle" font-size="29" font-weight="800" font-family="serif" fill="${col}">${zText}</text>`;
+    }
+  }
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(disp(t))}" xmlns="http://www.w3.org/2000/svg">${bg}${body}</svg>`;
 }
-function glyphHtml(t){return `<span class="mj ${suitClass(t)}">${glyph(t)}</span>`}
+function suitClass(t){return ''}
+function glyphHtml(t){return `<span class="mjFace">${tileSvg(t)}</span>`}
+function name34(i){if(i<9)return(i+1)+'萬';if(i<18)return(i-8)+'筒';if(i<27)return(i-17)+'索';return HON[i-27]}
+function tileCode34(i){if(i<9)return(i+1)+'m';if(i<18)return(i-8)+'p';if(i<27)return(i-17)+'s';return(i-26)+'z'}
+function glyph34(i){return glyph(tileCode34(i))}
+function glyphHtml34(i){return glyphHtml(tileCode34(i))}
 function idx(t){const n=+t[0],s=t[1];if(s==='m')return n-1;if(s==='p')return 9+n-1;if(s==='s')return 18+n-1;return 27+n-1} function to34(h){const a=Array(34).fill(0);h.forEach(t=>a[idx(t)]++);return a}
 function normalShanten(c){let best=8;function dfs(i,m,t,p){while(i<34&&c[i]===0)i++;if(i>=34){const tc=Math.min(t,4-m);best=Math.min(best,8-m*2-tc-p);return}if(m>4||t>4)return;if(c[i]>=3){c[i]-=3;dfs(i,m+1,t,p);c[i]+=3}if(i<27&&i%9<=6&&c[i+1]&&c[i+2]){c[i]--;c[i+1]--;c[i+2]--;dfs(i,m+1,t,p);c[i]++;c[i+1]++;c[i+2]++}if(c[i]>=2){c[i]-=2;if(!p)dfs(i,m,t,1);dfs(i,m,t+1,p);c[i]+=2}if(i<27&&i%9<=7&&c[i+1]){c[i]--;c[i+1]--;dfs(i,m,t+1,p);c[i]++;c[i+1]++}if(i<27&&i%9<=6&&c[i+2]){c[i]--;c[i+2]--;dfs(i,m,t+1,p);c[i]++;c[i+2]++}c[i]--;dfs(i,m,t,p);c[i]++}dfs(0,0,0,0);return best}
 function chiitoi(c){const pairs=c.filter(x=>x>=2).length,uniq=c.filter(x=>x>0).length;return 6-pairs+Math.max(0,7-uniq)} function kokushi(c){const K=[0,8,9,17,18,26,27,28,29,30,31,32,33];let u=0,p=0;for(const i of K){if(c[i])u++;if(c[i]>=2)p=1}return 13-u-p} function shanten(c){return Math.min(normalShanten(c.slice()),chiitoi(c),kokushi(c))}
-function name34(i){if(i<9)return(i+1)+'萬';if(i<18)return(i-8)+'筒';if(i<27)return(i-17)+'索';return HON[i-27]}
-function glyph34(i){return glyph(tileCode34(i))}
-function glyphHtml34(i){return glyphHtml(tileCode34(i))}
+
+
+
 function ukeire(c){const base=shanten(c),arr=[];for(let i=0;i<34;i++){if(c[i]>=4)continue;c[i]++;const s=shanten(c);c[i]--;if(s<base)arr.push({i,left:4-c[i],s})}return{base,arr,total:arr.reduce((q,x)=>q+x.left,0)}}
 function discardOptions(h){const out=[],seen=new Set();for(let i=0;i<h.length;i++){const t=h[i];if(seen.has(t))continue;seen.add(t);const nh=h.slice();nh.splice(i,1);const u=ukeire(to34(nh));out.push({discard:t,...u})}out.sort((a,b)=>a.base-b.base||b.total-a.total||b.arr.length-a.arr.length||a.discard.localeCompare(b.discard));return out}
 function renderHand(){const el=$('#hand');$('#cnt').textContent=hand.length;el.innerHTML='';if(!hand.length)el.innerHTML='<span class="muted">下の牌をタップして入力してください</span>';hand.forEach((t,i)=>{const b=document.createElement('button');b.className='tile';b.innerHTML=glyphHtml(t);b.setAttribute('aria-label',disp(t));b.title=disp(t);b.onclick=()=>{hand.splice(i,1);renderHand()};el.appendChild(b)});$('#calc').disabled=!(hand.length===13||hand.length===14)}
