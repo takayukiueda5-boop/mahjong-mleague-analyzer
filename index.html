@@ -5,254 +5,87 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="theme-color" content="#07111f" />
-<title>麻雀プロ試験データベース v2.1</title>
+<title>麻雀プロ試験データベース v2.3</title>
 <style>
 :root{--bg:#07111f;--card:#0e1c2e;--line:#294765;--text:#f7fbff;--muted:#9fb2c8;--accent:#32c4f4;--ok:#54d58c;--danger:#ff6b7a;--warn:#ffcf5a}
-*{box-sizing:border-box}
-body{margin:0;background:linear-gradient(180deg,#07111f,#0a1625 45%,#07111f);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
-.wrap{max-width:860px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 16px 48px}
-.top{display:flex;justify-content:space-between;align-items:center;gap:12px}
-.title{font-size:24px;font-weight:900}.ver{font-size:12px;background:var(--accent);color:#07111f;padding:6px 10px;border-radius:99px;font-weight:900}
-.sub,.note{color:var(--muted);line-height:1.55}
-.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}.tab{border:1px solid #315374;background:#10243b;color:#dff5ff;border-radius:14px;padding:12px 8px;font-weight:900}.tab.active{background:var(--accent);color:#07111f}
-.card{background:rgba(14,28,46,.95);border:1px solid var(--line);border-radius:22px;padding:18px;margin:14px 0;box-shadow:0 12px 30px rgba(0,0,0,.18)}
-h2{font-size:20px;margin:0 0 14px}.section{display:none}.section.active{display:block}
-.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.field{display:flex;flex-direction:column;gap:6px;flex:1;min-width:150px}.field label{font-size:12px;color:var(--muted);font-weight:700}
-.input,.select,.textarea{width:100%;border:1px solid #315374;background:#091725;color:#fff;border-radius:12px;padding:12px;font-size:16px}.textarea{min-height:92px;resize:vertical}
-.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.btn,.linkbtn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:14px;padding:13px 15px;font-weight:900;font-size:15px;text-decoration:none}
-.btn{background:#1d3858;color:#fff}.btn.primary{background:var(--accent);color:#07111f}.btn.ok{background:#17482f}.btn.danger{background:#4a1c26}.btn:disabled{opacity:.45}.linkbtn{background:#16304d;color:#dff5ff;border:1px solid #315374}
-.hand{display:flex;flex-wrap:wrap;gap:7px;min-height:78px;align-items:flex-end}.tile{width:44px;height:66px;border-radius:8px;background:linear-gradient(180deg,#fff,#f2f4f7);color:#111;display:flex;align-items:center;justify-content:center;font-size:29px;border:2px solid #d9e1e8;position:relative}.tile small{position:absolute;bottom:3px;left:0;right:0;text-align:center;font-size:8px;color:#65707b}
-.grid{display:grid;grid-template-columns:repeat(9,1fr);gap:6px}.sel{padding:7px 1px;background:#fff;color:#111;border:0;border-radius:8px;min-height:48px;font-size:24px}.count{font-size:28px;font-weight:900}.muted{color:var(--muted)}
-.result{padding:14px;border-radius:16px;background:#091725;border:1px solid #315374;margin-top:12px}.big{font-size:28px;font-weight:900}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.chip{padding:9px 11px;border:1px solid #315374;border-radius:12px;background:#0b1a2c}.rank{display:inline-block;background:#193451;border-radius:99px;padding:4px 8px;font-size:12px;font-weight:800}
-.list{display:grid;gap:10px}.item{padding:13px;border:1px solid #294765;border-radius:14px;background:#0a1727}.item .meta{font-size:12px;color:#8fa6bd}.item .actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.mini{padding:8px 10px;font-size:13px;border-radius:10px}
-.badge{display:inline-block;padding:3px 7px;border-radius:999px;font-size:11px;background:#17304c;color:#cfeeff;margin-right:5px}.badge.ok{background:#17482f;color:#c8f7dc}.badge.warn{background:#59491a;color:#ffe7a6}
-.explain{padding:14px;border-left:4px solid var(--accent);background:#0a1727;border-radius:12px;line-height:1.65}.footer{text-align:center;color:#7890a8;font-size:12px;margin-top:20px}
-@media(max-width:520px){.tabs{grid-template-columns:1fr}.grid{gap:4px}.sel{font-size:22px}.tile{width:40px;height:61px}}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#07111f,#0a1625 45%,#07111f);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}.wrap{max-width:860px;margin:auto;padding:calc(env(safe-area-inset-top) + 18px) 16px 48px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.title{font-size:24px;font-weight:900}.ver{font-size:12px;background:var(--accent);color:#07111f;padding:6px 10px;border-radius:99px;font-weight:900}.sub,.note{color:var(--muted);line-height:1.55}.hero{background:linear-gradient(135deg,#10243b,#0b1a2c);border:1px solid #315374;border-radius:22px;padding:18px;margin:14px 0}.hero h2{margin:0 0 8px}.hero .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}.step{background:#091725;border:1px solid #294765;border-radius:14px;padding:12px;text-align:center;font-size:13px}.step b{display:block;font-size:22px;color:var(--accent);margin-bottom:4px}.card{background:rgba(14,28,46,.95);border:1px solid var(--line);border-radius:22px;padding:18px;margin:14px 0;box-shadow:0 12px 30px rgba(0,0,0,.18)}h2{font-size:20px;margin:0 0 14px}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.field{display:flex;flex-direction:column;gap:6px;flex:1;min-width:150px}.field label{font-size:12px;color:var(--muted);font-weight:700}.input,.select,.textarea{width:100%;border:1px solid #315374;background:#091725;color:#fff;border-radius:12px;padding:12px;font-size:16px}.textarea{min-height:90px;resize:vertical}.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.btn,.linkbtn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:14px;padding:13px 15px;font-weight:900;font-size:15px;text-decoration:none}.btn{background:#1d3858;color:#fff}.btn.primary{background:var(--accent);color:#07111f}.btn.ok{background:#17482f}.btn.danger{background:#4a1c26}.btn:disabled{opacity:.45}.linkbtn{background:#16304d;color:#dff5ff;border:1px solid #315374}.sectionTitle{display:flex;align-items:center;gap:10px}.num{width:32px;height:32px;border-radius:50%;background:var(--accent);color:#07111f;font-weight:900;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}.hand{display:flex;flex-wrap:wrap;gap:7px;min-height:78px;align-items:flex-end}.tile{width:44px;height:66px;border-radius:8px;background:linear-gradient(180deg,#fff,#f2f4f7);color:#111;display:flex;align-items:center;justify-content:center;font-size:29px;border:2px solid #d9e1e8;position:relative}.tile small{position:absolute;bottom:3px;left:0;right:0;text-align:center;font-size:8px;color:#65707b}.grid{display:grid;grid-template-columns:repeat(9,1fr);gap:6px}.sel{padding:7px 1px;background:#fff;color:#111;border:0;border-radius:8px;min-height:48px;font-size:24px}.count{font-size:28px;font-weight:900}.muted{color:var(--muted)}.result{padding:14px;border-radius:16px;background:#091725;border:1px solid #315374;margin-top:12px}.big{font-size:28px;font-weight:900}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.chip{padding:9px 11px;border:1px solid #315374;border-radius:12px;background:#0b1a2c}.explain{padding:14px;border-left:4px solid var(--accent);background:#0a1727;border-radius:12px;line-height:1.65}.list{display:grid;gap:10px}.item{padding:13px;border:1px solid #294765;border-radius:14px;background:#0a1727}.item .meta{font-size:12px;color:#8fa6bd}.item .actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.mini{padding:8px 10px;font-size:13px;border-radius:10px}.hidden{display:none!important}.success{border:1px solid #1f7a4d;color:#bdf8d7;background:#0b2519;padding:12px;border-radius:12px;margin-top:12px}.footer{text-align:center;color:#7890a8;font-size:12px;margin-top:20px}@media(max-width:520px){.hero .steps{grid-template-columns:1fr}.grid{gap:4px}.sel{font-size:22px}.tile{width:40px;height:61px}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><div class="title">麻雀プロ試験データベース</div><div class="ver">v2.1</div></div>
-  <p class="sub">過去問はユーザーが公式資料を見て自分の端末に登録し、アプリは牌姿・計算結果・自分用の解説を保存します。公式問題本文・公式画像・公式解答はアプリに同梱しません。</p>
+  <div class="top"><div class="title">麻雀プロ試験データベース</div><div class="ver">v2.3</div></div>
+  <p class="sub">登録方法を3ステップに整理しました。まずは1問だけ登録して、保存できる流れを確認してください。</p>
 
-  <div class="tabs">
-    <button class="tab active" data-tab="db">過去問DB</button>
-    <button class="tab" data-tab="original">オリジナル問題</button>
-    <button class="tab" data-tab="review">復習</button>
+  <div class="hero">
+    <h2>過去問の登録方法</h2>
+    <div class="steps"><div class="step"><b>1</b>公式PDFを開く</div><div class="step"><b>2</b>問題番号を選び牌姿を入力</div><div class="step"><b>3</b>公式解答と解説を保存</div></div>
+    <div class="btns"><button id="startRegister" class="btn primary">＋ 過去問を1問登録する</button><button id="showSaved" class="btn">登録済み問題を見る</button></div>
   </div>
 
-  <div id="db" class="section active">
+  <div id="registerArea">
     <section class="card">
-      <h2>1. 問題を選択</h2>
-      <div class="row">
-        <div class="field"><label>登録済み問題</label><select id="problemSelect" class="select"><option value="">新規登録</option></select></div>
-        <div class="field"><label>検索</label><input id="search" class="input" placeholder="試験名・問題番号・タグ"></div>
-      </div>
-      <div class="btns">
-        <button id="loadProblem" class="btn primary">選択した問題を開く</button>
-        <button id="newProblem" class="btn">新規登録に戻る</button>
-      </div>
-      <div id="dbList" class="list" style="margin-top:12px"></div>
-    </section>
-
-    <section class="card">
-      <h2>2. 問題情報</h2>
-      <div class="row">
-        <div class="field"><label>団体・試験</label><input id="exam" class="input" placeholder="例：第50期後期プロ試験①"></div>
-        <div class="field"><label>問題番号</label><input id="qno" class="input" placeholder="例：問題3-①"></div>
-        <div class="field"><label>カテゴリ</label>
-          <select id="category" class="select">
-            <option>受け入れ</option><option>何切る</option><option>待ち牌</option><option>シャンテン</option><option>点数計算</option><option>その他</option>
-          </select>
-        </div>
-      </div>
-      <div class="row" style="margin-top:10px">
-        <div class="field"><label>公式資料URL</label><input id="sourceUrl" class="input" placeholder="公式PDFや公式ページのURL"></div>
-        <div class="field"><label>タグ</label><input id="tags" class="input" placeholder="例：受け入れ, 1シャンテン"></div>
-      </div>
+      <div class="sectionTitle"><span class="num">1</span><h2>公式資料を開く</h2></div>
+      <p class="note">公式PDFや公式ページのURLを貼ると、ここからワンタップで開けます。問題本文や画像そのものはアプリにコピーしません。</p>
+      <div class="field"><label>公式資料URL</label><input id="sourceUrl" class="input" placeholder="https://... 公式PDFのURL"></div>
       <div class="btns"><a id="openSource" class="linkbtn" href="#" target="_blank" rel="noopener">公式資料を開く</a></div>
     </section>
 
     <section class="card">
-      <div class="row" style="justify-content:space-between"><h2>3. 牌姿</h2><div><span id="cnt" class="count">0</span><span class="muted">枚</span></div></div>
-      <div id="hand" class="hand"><span class="muted">まだ牌が入力されていません</span></div>
-      <div class="btns"><button class="btn" id="undo">1枚戻す</button><button class="btn danger" id="clear">全消去</button><button class="btn primary" id="calc" disabled>計算する</button></div>
-      <p class="note">13枚 → 受け入れ分析、14枚 → 何切る分析。牌をタップすると削除できます。</p>
+      <div class="sectionTitle"><span class="num">2</span><h2>問題番号を選択して牌姿を入力</h2></div>
+      <div class="row"><div class="field"><label>団体・試験</label><input id="exam" class="input" placeholder="例：第50期後期プロ試験①"></div><div class="field"><label>問題番号</label><select id="qno" class="select"><option value="">問題番号を選択</option></select></div></div>
+      <div class="row" style="margin-top:10px"><div class="field"><label>カテゴリ</label><select id="category" class="select"><option>受け入れ</option><option>何切る</option><option>待ち牌</option><option>シャンテン</option><option>点数計算</option><option>その他</option></select></div><div class="field"><label>タグ（任意）</label><input id="tags" class="input" placeholder="例：1シャンテン, 受け入れ"></div></div>
+      <div class="row" style="justify-content:space-between;margin-top:14px"><h2 style="margin:0;font-size:18px">牌姿</h2><div><span id="cnt" class="count">0</span><span class="muted">枚</span></div></div>
+      <div id="hand" class="hand"><span class="muted">下の牌をタップして入力してください</span></div>
+      <div class="btns"><button class="btn" id="undo">1枚戻す</button><button class="btn danger" id="clear">全消去</button><button class="btn primary" id="calc" disabled>牌姿を計算</button></div>
+      <p class="note">13枚なら受け入れ分析、14枚なら何切る分析です。</p>
       <div id="picker"></div>
     </section>
 
     <section class="card">
-      <h2>4. 計算結果と解説</h2>
-      <div id="result" class="result"><span class="muted">13枚または14枚入力すると計算できます。</span></div>
-      <div id="autoExplain" class="explain" style="margin-top:12px"><span class="muted">計算後に、自動解説を表示します。</span></div>
-      <div class="field" style="margin-top:12px"><label>公式解答（自分で公式資料から入力）</label><input id="official" class="input" placeholder="例：7種23牌 / 4索 など"></div>
-      <div class="field" style="margin-top:10px"><label>自分用の解説・メモ</label><textarea id="explanation" class="textarea" placeholder="なぜこの打牌か、どの受け入れが増えるか、注意点など"></textarea></div>
-      <div class="row" style="margin-top:10px">
-        <div class="field"><label>公式解答との照合</label>
-          <select id="judgement" class="select"><option value="未判定">未判定</option><option value="一致">一致</option><option value="不一致">不一致</option></select>
-        </div>
-      </div>
-      <div class="btns"><button id="saveProblem" class="btn ok">問題を保存</button><button id="deleteProblem" class="btn danger" disabled>この問題を削除</button></div>
+      <div class="sectionTitle"><span class="num">3</span><h2>公式解答と解説を保存</h2></div>
+      <div id="result" class="result"><span class="muted">まず13枚または14枚の牌姿を入力して「牌姿を計算」を押してください。</span></div>
+      <div id="autoExplain" class="explain" style="margin-top:12px"><span class="muted">計算後に自動解説が表示されます。</span></div>
+      <div class="field" style="margin-top:12px"><label>公式解答</label><input id="official" class="input" placeholder="例：7種23牌 / 4索 など"></div>
+      <div class="field" style="margin-top:10px"><label>自分用の解説・補足</label><textarea id="explanation" class="textarea" placeholder="公式解答を見て、理由や注意点をメモ"></textarea></div>
+      <div class="field" style="margin-top:10px"><label>計算結果との照合</label><select id="judgement" class="select"><option value="未判定">未判定</option><option value="一致">一致</option><option value="不一致">不一致</option></select></div>
+      <div class="btns"><button id="saveProblem" class="btn ok">この問題を保存する</button><button id="resetProblem" class="btn">次の問題を登録する</button><button id="deleteProblem" class="btn danger hidden">この問題を削除</button></div>
+      <div id="savedMsg" class="success hidden">保存しました。上の「登録済み問題を見る」から呼び出せます。</div>
     </section>
   </div>
 
-  <div id="original" class="section">
-    <section class="card">
-      <h2>オリジナル問題</h2>
-      <p class="note">アプリ内蔵のオリジナル牌姿です。過去問そのものは含みません。牌効率ロジックの練習用です。</p>
-      <div id="originalList" class="list"></div>
-    </section>
-  </div>
-
-  <div id="review" class="section">
-    <section class="card">
-      <h2>復習</h2>
-      <div class="row">
-        <div class="field"><label>対象</label><select id="reviewFilter" class="select"><option value="all">すべて</option><option value="不一致">不一致のみ</option><option value="未判定">未判定のみ</option></select></div>
-      </div>
-      <div id="reviewList" class="list" style="margin-top:12px"></div>
-    </section>
-  </div>
+  <section id="savedArea" class="card hidden">
+    <h2>登録済み問題</h2>
+    <div class="row"><div class="field"><label>検索</label><input id="search" class="input" placeholder="試験名・問題番号・タグ"></div></div>
+    <div id="dbList" class="list" style="margin-top:12px"></div>
+  </section>
 
   <div class="footer">過去問本文・公式牌姿画像・公式解答はアプリに同梱せず、ユーザー自身の端末内データとして保存します。</div>
 </div>
 <script>
 const HON=['東','南','西','北','白','發','中'];
-const UNI={
-'1m':'🀇','2m':'🀈','3m':'🀉','4m':'🀊','5m':'🀋','6m':'🀌','7m':'🀍','8m':'🀎','9m':'🀏',
-'1s':'🀐','2s':'🀑','3s':'🀒','4s':'🀓','5s':'🀔','6s':'🀕','7s':'🀖','8s':'🀗','9s':'🀘',
-'1p':'🀙','2p':'🀚','3p':'🀛','4p':'🀜','5p':'🀝','6p':'🀞','7p':'🀟','8p':'🀠','9p':'🀡',
-'1z':'🀀','2z':'🀁','3z':'🀂','4z':'🀃','5z':'🀆','6z':'🀅','7z':'🀄'};
-const JP={m:'萬',p:'筒',s:'索'};
-const STORE='mahjongProDB_v21';
-let hand=[], currentId=null, lastResult='', lastExplain='';
-const $=s=>document.querySelector(s);
-
-const ORIGINALS=[
- {id:'o1',title:'受け入れ基礎①',category:'受け入れ',hand:['1m','2m','3m','4m','5m','6m','3p','4p','5p','6s','7s','8s','9s']},
- {id:'o2',title:'何切る基礎①',category:'何切る',hand:['1m','2m','3m','4m','5m','6m','7m','3p','4p','5p','6s','7s','8s','9s']},
- {id:'o3',title:'待ち確認①',category:'受け入れ',hand:['2m','3m','4m','5m','6m','7m','2p','3p','4p','5s','6s','7s','7s']}
-];
-
-function disp(t){if(t.endsWith('z'))return HON[+t[0]-1];return t[0]+JP[t[1]]}
-function glyph(t){return UNI[t]||'🀫'}
-function idx(t){const n=+t[0],s=t[1];if(s==='m')return n-1;if(s==='p')return 9+n-1;if(s==='s')return 18+n-1;return 27+n-1}
-function to34(h){const a=Array(34).fill(0);h.forEach(t=>a[idx(t)]++);return a}
+const UNI={'1m':'🀇','2m':'🀈','3m':'🀉','4m':'🀊','5m':'🀋','6m':'🀌','7m':'🀍','8m':'🀎','9m':'🀏','1s':'🀐','2s':'🀑','3s':'🀒','4s':'🀓','5s':'🀔','6s':'🀕','7s':'🀖','8s':'🀗','9s':'🀘','1p':'🀙','2p':'🀚','3p':'🀛','4p':'🀜','5p':'🀝','6p':'🀞','7p':'🀟','8p':'🀠','9p':'🀡','1z':'🀀','2z':'🀁','3z':'🀂','4z':'🀃','5z':'🀆','6z':'🀅','7z':'🀄'};
+const JP={m:'萬',p:'筒',s:'索'}; const STORE='mahjongProDB_v22';
+let hand=[],currentId=null,lastResult='',lastExplain=''; const $=s=>document.querySelector(s);
+function disp(t){if(t.endsWith('z'))return HON[+t[0]-1];return t[0]+JP[t[1]]} function glyph(t){return UNI[t]||'🀫'}
+function idx(t){const n=+t[0],s=t[1];if(s==='m')return n-1;if(s==='p')return 9+n-1;if(s==='s')return 18+n-1;return 27+n-1} function to34(h){const a=Array(34).fill(0);h.forEach(t=>a[idx(t)]++);return a}
 function normalShanten(c){let best=8;function dfs(i,m,t,p){while(i<34&&c[i]===0)i++;if(i>=34){t+=Math.min(4-m,t);best=Math.min(best,8-m*2-t-p);return}if(m>4||t>4)return;if(c[i]>=3){c[i]-=3;dfs(i,m+1,t,p);c[i]+=3}if(i<27&&i%9<=6&&c[i+1]&&c[i+2]){c[i]--;c[i+1]--;c[i+2]--;dfs(i,m+1,t,p);c[i]++;c[i+1]++;c[i+2]++}if(c[i]>=2){c[i]-=2;if(!p)dfs(i,m,t,1);dfs(i,m,t+1,p);c[i]+=2}if(i<27&&i%9<=7&&c[i+1]){c[i]--;c[i+1]--;dfs(i,m,t+1,p);c[i]++;c[i+1]++}if(i<27&&i%9<=6&&c[i+2]){c[i]--;c[i+2]--;dfs(i,m,t+1,p);c[i]++;c[i+2]++}c[i]--;dfs(i,m,t,p);c[i]++}dfs(0,0,0,0);return best}
-function chiitoi(c){const pairs=c.filter(x=>x>=2).length,uniq=c.filter(x=>x>0).length;return 6-pairs+Math.max(0,7-uniq)}
-function kokushi(c){const K=[0,8,9,17,18,26,27,28,29,30,31,32,33];let u=0,p=0;for(const i of K){if(c[i])u++;if(c[i]>=2)p=1}return 13-u-p}
-function shanten(c){return Math.min(normalShanten(c.slice()),chiitoi(c),kokushi(c))}
-function name34(i){if(i<9)return(i+1)+'萬';if(i<18)return(i-8)+'筒';if(i<27)return(i-17)+'索';return HON[i-27]}
-function glyph34(i){if(i<9)return UNI[(i+1)+'m'];if(i<18)return UNI[(i-8)+'p'];if(i<27)return UNI[(i-17)+'s'];return UNI[(i-26)+'z']}
+function chiitoi(c){const pairs=c.filter(x=>x>=2).length,uniq=c.filter(x=>x>0).length;return 6-pairs+Math.max(0,7-uniq)} function kokushi(c){const K=[0,8,9,17,18,26,27,28,29,30,31,32,33];let u=0,p=0;for(const i of K){if(c[i])u++;if(c[i]>=2)p=1}return 13-u-p} function shanten(c){return Math.min(normalShanten(c.slice()),chiitoi(c),kokushi(c))}
+function name34(i){if(i<9)return(i+1)+'萬';if(i<18)return(i-8)+'筒';if(i<27)return(i-17)+'索';return HON[i-27]} function glyph34(i){if(i<9)return UNI[(i+1)+'m'];if(i<18)return UNI[(i-8)+'p'];if(i<27)return UNI[(i-17)+'s'];return UNI[(i-26)+'z']}
 function ukeire(c){const base=shanten(c),arr=[];for(let i=0;i<34;i++){if(c[i]>=4)continue;c[i]++;const s=shanten(c);c[i]--;if(s<base)arr.push({i,left:4-c[i],s})}return{base,arr,total:arr.reduce((q,x)=>q+x.left,0)}}
 function discardOptions(h){const out=[],seen=new Set();for(let i=0;i<h.length;i++){const t=h[i];if(seen.has(t))continue;seen.add(t);const nh=h.slice();nh.splice(i,1);const u=ukeire(to34(nh));out.push({discard:t,...u})}out.sort((a,b)=>a.base-b.base||b.total-a.total||b.arr.length-a.arr.length||a.discard.localeCompare(b.discard));return out}
-
-function renderHand(){
-  const el=$('#hand'); $('#cnt').textContent=hand.length; el.innerHTML='';
-  if(!hand.length) el.innerHTML='<span class="muted">まだ牌が入力されていません</span>';
-  hand.forEach((t,i)=>{const b=document.createElement('button');b.className='tile';b.innerHTML=`${glyph(t)}<small>${disp(t)}</small>`;b.onclick=()=>{hand.splice(i,1);renderHand()};el.appendChild(b)});
-  $('#calc').disabled=!(hand.length===13||hand.length===14);
-}
+function renderHand(){const el=$('#hand');$('#cnt').textContent=hand.length;el.innerHTML='';if(!hand.length)el.innerHTML='<span class="muted">下の牌をタップして入力してください</span>';hand.forEach((t,i)=>{const b=document.createElement('button');b.className='tile';b.innerHTML=`${glyph(t)}<small>${disp(t)}</small>`;b.onclick=()=>{hand.splice(i,1);renderHand()};el.appendChild(b)});$('#calc').disabled=!(hand.length===13||hand.length===14)}
 function addTile(t){if(hand.filter(x=>x===t).length>=4)return;hand.push(t);renderHand()}
 function buildPicker(){let html='';[['萬子','m'],['筒子','p'],['索子','s']].forEach(([name,s])=>{html+=`<p class="muted">${name}</p><div class="grid">`;for(let i=1;i<=9;i++)html+=`<button class="sel" data-t="${i+s}" title="${i}${JP[s]}">${glyph(i+s)}</button>`;html+='</div>'});html+='<p class="muted">字牌</p><div class="grid">';for(let i=1;i<=7;i++)html+=`<button class="sel" data-t="${i}z" title="${HON[i-1]}">${glyph(i+'z')}</button>`;html+='</div>';$('#picker').innerHTML=html;document.querySelectorAll('.sel').forEach(b=>b.onclick=()=>addTile(b.dataset.t))}
-function explain13(u){
-  const tiles=u.arr.map(x=>`${name34(x.i)}${x.left}枚`).join('、');
-  if(u.base===0) return `現在はテンパイです。待ちは${u.arr.length}種、山に最大${u.total}枚あります。内訳は${tiles}です。まずは待ちの種類数だけでなく、残り枚数の多い待ちを確認すると実戦判断に使いやすくなります。`;
-  return `現在は${u.base}シャンテンです。シャンテン数を1つ進める受け入れは${u.arr.length}種・最大${u.total}枚です。内訳は${tiles}です。受け入れ枚数が多いほど次巡に手が進みやすいので、公式解答と照合する際は「種類数」と「枚数」の両方を確認してください。`;
-}
-function explain14(opts){
-  if(!opts.length) return '打牌候補を算出できませんでした。';
-  const best=opts[0], ties=opts.filter(x=>x.base===best.base&&x.total===best.total);
-  let s=`最上位候補は${ties.map(x=>disp(x.discard)).join('・')}です。`;
-  s+=` 打牌後は${best.base===0?'テンパイ':best.base+'シャンテン'}で、受け入れは${best.arr.length}種・最大${best.total}枚です。`;
-  if(opts[1]) s+=` 次点の${disp(opts[1].discard)}切りは${opts[1].arr.length}種・${opts[1].total}枚です。`;
-  s+=' 何切る問題では、シャンテン数を落とさないことを優先し、その中で受け入れ枚数・種類数を比較しています。';
-  return s;
-}
-function calculate(){
-  const r=$('#result');
-  if(hand.length===13){
-    const u=ukeire(to34(hand));
-    lastResult=`${u.base===0?'テンパイ':u.base+'シャンテン'} / ${u.arr.length}種${u.total}枚`;
-    lastExplain=explain13(u);
-    r.innerHTML=`<div class="big">${u.base===0?'テンパイ':u.base+'シャンテン'}</div><p><b>${u.arr.length}種・${u.total}枚</b>の受け入れ</p><div class="chips">${u.arr.map(x=>`<div class="chip"><span style="font-size:24px">${glyph34(x.i)}</span> ${name34(x.i)}：${x.left}枚</div>`).join('')}</div>`;
-  }else if(hand.length===14){
-    const opts=discardOptions(hand);
-    lastResult=opts[0]?`${disp(opts[0].discard)}切り / ${opts[0].base===0?'テンパイ':opts[0].base+'シャンテン'} / ${opts[0].arr.length}種${opts[0].total}枚`:'算出不可';
-    lastExplain=explain14(opts);
-    r.innerHTML=`<div class="big">何切る分析</div><div class="chips">${opts.slice(0,8).map((o,i)=>`<div class="chip"><span class="rank">候補${i+1}</span><br><b style="font-size:20px">${glyph(o.discard)} ${disp(o.discard)}切り</b><br>${o.base===0?'テンパイ':o.base+'シャンテン'} / ${o.arr.length}種${o.total}枚</div>`).join('')}</div>`;
-  }
-  $('#autoExplain').textContent=lastExplain;
-}
-function dbLoad(){try{return JSON.parse(localStorage.getItem(STORE)||'[]')}catch(e){return[]}}
-function dbSave(a){localStorage.setItem(STORE,JSON.stringify(a))}
-function problemLabel(p){return `${p.exam||'試験未設定'}｜${p.qno||'番号未設定'}｜${p.category||''}`}
-function populateSelect(){
-  const list=dbLoad(), sel=$('#problemSelect'), current=sel.value;
-  sel.innerHTML='<option value="">新規登録</option>'+list.map(p=>`<option value="${p.id}">${problemLabel(p)}</option>`).join('');
-  if(list.some(p=>p.id===current)) sel.value=current;
-}
-function renderDbList(){
-  const q=$('#search').value.trim().toLowerCase(), list=dbLoad().filter(p=>{
-    const text=[p.exam,p.qno,p.category,p.tags,p.official,p.explanation].join(' ').toLowerCase();
-    return !q||text.includes(q);
-  });
-  $('#dbList').innerHTML=list.length?list.map(p=>`<div class="item"><b>${problemLabel(p)}</b><div class="meta">${p.tags||'タグなし'} / ${p.hand?.length||0}枚</div><div>${(p.hand||[]).map(glyph).join(' ')}</div><div class="actions"><button class="btn mini" onclick="openProblem('${p.id}')">開く</button>${p.sourceUrl?`<a class="linkbtn mini" href="${escapeHtmlAttr(p.sourceUrl)}" target="_blank" rel="noopener">公式資料</a>`:''}</div></div>`).join(''):'<span class="muted">登録済み問題はありません</span>';
-}
-function escapeHtmlAttr(s){return String(s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
-function resetForm(){
-  currentId=null; hand=[]; renderHand(); lastResult=''; lastExplain='';
-  ['exam','qno','sourceUrl','tags','official','explanation'].forEach(id=>$('#'+id).value='');
-  $('#category').value='受け入れ'; $('#judgement').value='未判定';
-  $('#result').innerHTML='<span class="muted">13枚または14枚入力すると計算できます。</span>';
-  $('#autoExplain').innerHTML='<span class="muted">計算後に、自動解説を表示します。</span>';
-  $('#deleteProblem').disabled=true; $('#problemSelect').value=''; updateSourceLink();
-}
-window.openProblem=function(id){
-  const p=dbLoad().find(x=>x.id===id); if(!p)return;
-  currentId=id; $('#problemSelect').value=id;
-  $('#exam').value=p.exam||''; $('#qno').value=p.qno||''; $('#category').value=p.category||'受け入れ'; $('#sourceUrl').value=p.sourceUrl||''; $('#tags').value=p.tags||''; $('#official').value=p.official||''; $('#explanation').value=p.explanation||''; $('#judgement').value=p.judgement||'未判定';
-  hand=[...(p.hand||[])]; renderHand();
-  lastResult=p.result||''; lastExplain=p.autoExplain||'';
-  $('#result').innerHTML=p.resultHtml||'<span class="muted">「計算する」で再計算できます。</span>';
-  $('#autoExplain').textContent=lastExplain||'「計算する」で自動解説を生成できます。';
-  $('#deleteProblem').disabled=false; updateSourceLink();
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-function updateSourceLink(){
-  const u=$('#sourceUrl').value.trim(), a=$('#openSource');
-  a.href=u||'#'; a.style.opacity=u?1:.45; a.onclick=u?null:(e=>e.preventDefault());
-}
-function saveProblem(){
-  if(!$('#exam').value.trim() || !$('#qno').value.trim()){alert('団体・試験と問題番号を入力してください。');return}
-  const list=dbLoad(), id=currentId||('p_'+Date.now());
-  const p={id,exam:$('#exam').value.trim(),qno:$('#qno').value.trim(),category:$('#category').value,sourceUrl:$('#sourceUrl').value.trim(),tags:$('#tags').value.trim(),hand:[...hand],result:lastResult,autoExplain:lastExplain,resultHtml:$('#result').innerHTML,official:$('#official').value.trim(),explanation:$('#explanation').value.trim(),judgement:$('#judgement').value,updatedAt:Date.now()};
-  const i=list.findIndex(x=>x.id===id); if(i>=0)list[i]=p;else list.push(p); dbSave(list); currentId=id; populateSelect(); $('#problemSelect').value=id; renderDbList(); renderReview(); $('#deleteProblem').disabled=false; alert('問題を保存しました。');
-}
-function deleteProblem(){
-  if(!currentId)return; if(!confirm('この問題を削除しますか？'))return;
-  dbSave(dbLoad().filter(x=>x.id!==currentId)); resetForm(); populateSelect(); renderDbList(); renderReview();
-}
-function renderOriginal(){
-  $('#originalList').innerHTML=ORIGINALS.map(o=>`<div class="item"><b>${o.title}</b><div class="meta">${o.category} / ${o.hand.length}枚</div><div style="font-size:28px;margin:8px 0">${o.hand.map(glyph).join(' ')}</div><div class="actions"><button class="btn mini" onclick="practiceOriginal('${o.id}')">この問題を開く</button></div></div>`).join('');
-}
-window.practiceOriginal=function(id){
-  const o=ORIGINALS.find(x=>x.id===id); if(!o)return;
-  document.querySelector('[data-tab="db"]').click(); resetForm();
-  $('#exam').value='オリジナル問題'; $('#qno').value=o.title; $('#category').value=o.category; $('#tags').value='オリジナル, 練習'; hand=[...o.hand]; renderHand(); calculate();
-}
-function renderReview(){
-  const f=$('#reviewFilter').value, list=dbLoad().filter(p=>f==='all'||p.judgement===f);
-  $('#reviewList').innerHTML=list.length?list.map(p=>`<div class="item"><b>${problemLabel(p)}</b><div class="meta">${p.judgement||'未判定'} / ${p.category||''}</div><div>${(p.hand||[]).map(glyph).join(' ')}</div><div class="actions"><button class="btn mini" onclick="reviewOpen('${p.id}')">復習する</button></div></div>`).join(''):'<span class="muted">対象の問題はありません</span>';
-}
-window.reviewOpen=function(id){document.querySelector('[data-tab="db"]').click();openProblem(id)}
-
-document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));b.classList.add('active');$('#'+b.dataset.tab).classList.add('active');});
-$('#undo').onclick=()=>{hand.pop();renderHand()};$('#clear').onclick=()=>{hand=[];renderHand();lastResult='';lastExplain='';$('#result').innerHTML='<span class="muted">13枚または14枚入力すると計算できます。</span>';$('#autoExplain').innerHTML='<span class="muted">計算後に、自動解説を表示します。</span>'};
-$('#calc').onclick=calculate; $('#saveProblem').onclick=saveProblem; $('#deleteProblem').onclick=deleteProblem;
-$('#loadProblem').onclick=()=>{if($('#problemSelect').value)openProblem($('#problemSelect').value)}; $('#newProblem').onclick=resetForm; $('#search').oninput=renderDbList; $('#sourceUrl').oninput=updateSourceLink; $('#reviewFilter').onchange=renderReview;
-
-buildPicker(); renderHand(); populateSelect(); renderDbList(); renderOriginal(); renderReview(); updateSourceLink();
+function buildQuestionSelect(){const sel=$('#qno');let html='<option value="">問題番号を選択</option>';const subs=['','-①','-②','-③','-④','-⑤'];for(let n=1;n<=50;n++){for(const sub of subs){html+=`<option value="問題${n}${sub}">問題${n}${sub}</option>`}}sel.innerHTML=html;}
+function calculate(){const r=$('#result');if(hand.length===13){const u=ukeire(to34(hand));lastResult=`${u.base===0?'テンパイ':u.base+'シャンテン'} / ${u.arr.length}種${u.total}枚`;lastExplain=`現在は${u.base===0?'テンパイ':u.base+'シャンテン'}です。受け入れは${u.arr.length}種・最大${u.total}枚です。公式解答と照合するときは、種類数と枚数の両方を確認してください。`;r.innerHTML=`<div class="big">${u.base===0?'テンパイ':u.base+'シャンテン'}</div><p><b>${u.arr.length}種・${u.total}枚</b>の受け入れ</p><div class="chips">${u.arr.map(x=>`<div class="chip"><span style="font-size:24px">${glyph34(x.i)}</span> ${name34(x.i)}：${x.left}枚</div>`).join('')}</div>`}else if(hand.length===14){const opts=discardOptions(hand);const best=opts[0];lastResult=best?`${disp(best.discard)}切り / ${best.base===0?'テンパイ':best.base+'シャンテン'} / ${best.arr.length}種${best.total}枚`:'算出不可';lastExplain=best?`最上位候補は${disp(best.discard)}切りです。打牌後は${best.base===0?'テンパイ':best.base+'シャンテン'}、受け入れ${best.arr.length}種・最大${best.total}枚です。シャンテン数を維持した候補の中で受け入れを比較しています。`:'算出できませんでした。';r.innerHTML=`<div class="big">何切る分析</div><div class="chips">${opts.slice(0,6).map((o,i)=>`<div class="chip"><b>候補${i+1}：${glyph(o.discard)} ${disp(o.discard)}切り</b><br>${o.base===0?'テンパイ':o.base+'シャンテン'} / ${o.arr.length}種${o.total}枚</div>`).join('')}</div>`}$('#autoExplain').textContent=lastExplain}
+function dbLoad(){try{return JSON.parse(localStorage.getItem(STORE)||'[]')}catch(e){return[]}} function dbSave(a){localStorage.setItem(STORE,JSON.stringify(a))} function problemLabel(p){return `${p.exam||'試験未設定'}｜${p.qno||'番号未設定'}`}
+function updateSource(){const u=$('#sourceUrl').value.trim(),a=$('#openSource');a.href=u||'#';a.style.opacity=u?1:.45;a.onclick=u?null:(e=>e.preventDefault())}
+function reset(){currentId=null;hand=[];renderHand();lastResult='';lastExplain='';['exam','sourceUrl','tags','official','explanation'].forEach(id=>$('#'+id).value='');$('#qno').value='';$('#category').value='受け入れ';$('#judgement').value='未判定';$('#result').innerHTML='<span class="muted">まず13枚または14枚の牌姿を入力して「牌姿を計算」を押してください。</span>';$('#autoExplain').innerHTML='<span class="muted">計算後に自動解説が表示されます。</span>';$('#deleteProblem').classList.add('hidden');$('#savedMsg').classList.add('hidden');updateSource();window.scrollTo({top:0,behavior:'smooth'})}
+function saveProblem(){if(!$('#exam').value.trim()||!$('#qno').value.trim()){alert('「団体・試験」と「問題番号」を入力してください。');return}if(!hand.length){alert('牌姿を入力してください。');return}const list=dbLoad(),id=currentId||('p_'+Date.now());const p={id,exam:$('#exam').value.trim(),qno:$('#qno').value.trim(),category:$('#category').value,sourceUrl:$('#sourceUrl').value.trim(),tags:$('#tags').value.trim(),hand:[...hand],result:lastResult,autoExplain:lastExplain,resultHtml:$('#result').innerHTML,official:$('#official').value.trim(),explanation:$('#explanation').value.trim(),judgement:$('#judgement').value,updatedAt:Date.now()};const i=list.findIndex(x=>x.id===id);if(i>=0)list[i]=p;else list.push(p);dbSave(list);currentId=id;$('#deleteProblem').classList.remove('hidden');$('#savedMsg').classList.remove('hidden');renderList()}
+function renderList(){const q=$('#search').value.trim().toLowerCase(),list=dbLoad().filter(p=>!q||[p.exam,p.qno,p.tags,p.category].join(' ').toLowerCase().includes(q));$('#dbList').innerHTML=list.length?list.map(p=>`<div class="item"><b>${problemLabel(p)}</b><div class="meta">${p.category} / ${p.hand.length}枚 / ${p.judgement}</div><div style="font-size:26px;margin:6px 0">${p.hand.map(glyph).join(' ')}</div><div class="actions"><button class="btn mini" onclick="openProblem('${p.id}')">開く</button>${p.sourceUrl?`<a class="linkbtn mini" href="${p.sourceUrl}" target="_blank" rel="noopener">公式資料</a>`:''}</div></div>`).join(''):'<span class="muted">まだ問題は登録されていません。</span>'}
+window.openProblem=function(id){const p=dbLoad().find(x=>x.id===id);if(!p)return;currentId=id;$('#exam').value=p.exam||'';$('#qno').value=p.qno||'';$('#category').value=p.category||'受け入れ';$('#sourceUrl').value=p.sourceUrl||'';$('#tags').value=p.tags||'';$('#official').value=p.official||'';$('#explanation').value=p.explanation||'';$('#judgement').value=p.judgement||'未判定';hand=[...(p.hand||[])];renderHand();lastResult=p.result||'';lastExplain=p.autoExplain||'';$('#result').innerHTML=p.resultHtml||'<span class="muted">「牌姿を計算」で再計算できます。</span>';$('#autoExplain').textContent=lastExplain||'「牌姿を計算」で自動解説を表示します。';$('#deleteProblem').classList.remove('hidden');$('#savedArea').classList.add('hidden');$('#registerArea').classList.remove('hidden');updateSource();window.scrollTo({top:0,behavior:'smooth'})}
+function del(){if(!currentId)return;if(!confirm('この問題を削除しますか？'))return;dbSave(dbLoad().filter(x=>x.id!==currentId));reset();renderList()}
+$('#startRegister').onclick=()=>{$('#savedArea').classList.add('hidden');$('#registerArea').classList.remove('hidden');reset()};$('#showSaved').onclick=()=>{$('#registerArea').classList.add('hidden');$('#savedArea').classList.remove('hidden');renderList();window.scrollTo({top:0,behavior:'smooth'})};$('#undo').onclick=()=>{hand.pop();renderHand()};$('#clear').onclick=()=>{hand=[];renderHand()};$('#calc').onclick=calculate;$('#sourceUrl').oninput=updateSource;$('#saveProblem').onclick=saveProblem;$('#resetProblem').onclick=reset;$('#deleteProblem').onclick=del;$('#search').oninput=renderList;
+buildQuestionSelect();buildPicker();renderHand();renderList();updateSource();
 </script>
-</body>
-</html>
+</body></html>
