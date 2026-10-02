@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="theme-color" content="#07111f" />
-<title>Mリーグ牌姿アナライザー v0.6</title>
+<title>Mリーグ牌姿アナライザー v0.7</title>
 <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.20.1/dist/ort.min.js"></script>
 <style>
 :root{--bg:#07111f;--card:#0e1c2e;--line:#294765;--text:#f7fbff;--muted:#9fb2c8;--accent:#32c4f4;--danger:#ff5b6d;--ok:#54d58c;--warn:#ffcf5a}
@@ -17,7 +17,7 @@
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><div class="title">Mリーグ牌姿アナライザー</div><div class="ver">v0.6</div></div>
+  <div class="top"><div class="title">Mリーグ牌姿アナライザー</div><div class="ver">v0.7</div></div>
   <p class="sub">Mリーグのスクリーンショットから手牌を自動認識します。<b>13枚だけ解析</b>し、13枚以外はエラーにします。右端に少し離れた牌も同じ手牌列として拾うようにしています。</p>
 
   <section class="card">
@@ -50,7 +50,7 @@
     <h2>画像認識について</h2>
     <p class="note">この版はGitHub Pages / Safari向けです。2段階認識です。まず牌の位置を検出し、その後34種類の牌分類モデルで1枚ずつ判定します。初回のみ2つのAIモデルをネットから読み込みます。Mリーグ専用学習ではないため誤認識はあり得ますが、位置検出だけで全牌を同じ種類にしていた旧版より実際の牌種判定に対応しています。</p>
   </section>
-  <div class="footer">M-League Hand Analyzer • local browser inference</div>
+  <div class="footer">M-League Hand Analyzer • Mリーグ固定レイアウト補助認識</div>
 </div>
 <script>
 const DETECTOR_MODEL='https://raw.githubusercontent.com/nikmomo/Mahjong-YOLO/main/models/nano/mahjong-yolon-best.onnx';
@@ -76,18 +76,24 @@ async function ensureSessions(){
 function iou(a,b){const x1=Math.max(a.x1,b.x1),y1=Math.max(a.y1,b.y1),x2=Math.min(a.x2,b.x2),y2=Math.min(a.y2,b.y2);const inter=Math.max(0,x2-x1)*Math.max(0,y2-y1);const aa=Math.max(1,(a.x2-a.x1)*(a.y2-a.y1)),bb=Math.max(1,(b.x2-b.x1)*(b.y2-b.y1));return inter/(aa+bb-inter+1e-9)}
 function nms(boxes,thr=.45){boxes=[...boxes].sort((a,b)=>b.score-a.score);const out=[];for(const b of boxes){if(!out.some(o=>iou(o,b)>thr))out.push(b)}return out}
 function prepDetector(img){const S=640,c=document.createElement('canvas');c.width=S;c.height=S;const x=c.getContext('2d');x.fillStyle='#000';x.fillRect(0,0,S,S);const sc=Math.min(S/img.width,S/img.height),w=img.width*sc,h=img.height*sc,ox=(S-w)/2,oy=(S-h)/2;x.drawImage(img,ox,oy,w,h);const d=x.getImageData(0,0,S,S).data;const arr=new Float32Array(3*S*S);for(let i=0;i<S*S;i++){arr[i]=d[i*4]/255;arr[S*S+i]=d[i*4+1]/255;arr[2*S*S+i]=d[i*4+2]/255}return {tensor:new ort.Tensor('float32',arr,[1,3,S,S]),sc,ox,oy,S}}
-function parseDetectorOutput(data,dims){let C,N,get;if(dims.length!==3)throw new Error('検出モデル出力形式が未対応です');if(dims[1]<dims[2]){C=dims[1];N=dims[2];get=(c,n)=>data[c*N+n]}else{N=dims[1];C=dims[2];get=(c,n)=>data[n*C+c]}const boxes=[];for(let n=0;n<N;n++){let score=C===5?get(4,n):-Infinity;if(C>5){for(let c=4;c<C;c++)score=Math.max(score,get(c,n))}if(score<.18)continue;const cx=get(0,n),cy=get(1,n),w=get(2,n),h=get(3,n);if(w<12||h<18)continue;boxes.push({x1:cx-w/2,y1:cy-h/2,x2:cx+w/2,y2:cy+h/2,score})}return nms(boxes,.38)}
-function selectHand(boxes){if(!boxes.length)return[]; const valid=boxes.filter(b=>{const w=b.x2-b.x1,h=b.y2-b.y1,cy=(b.y1+b.y2)/2;return h>24&&w>12&&h/w>.8&&cy>190}); if(!valid.length)return[]; let best=[],bestScore=-1e9;for(const seed of valid){const cy=(seed.y1+seed.y2)/2,hh=seed.y2-seed.y1;let row=valid.filter(b=>Math.abs(((b.y1+b.y2)/2)-cy)<Math.max(26,hh*.52)&&Math.abs((b.y2-b.y1)-hh)<Math.max(30,hh*.7));row=nms(row,.28).sort((a,b)=>a.x1-b.x1);if(row.length<5)continue;const ys=row.map(b=>(b.y1+b.y2)/2),spread=Math.max(...ys)-Math.min(...ys);const lower=ys.reduce((a,b)=>a+b,0)/ys.length;const score=row.length*130+lower-spread*4+row.reduce((q,b)=>q+b.score,0)*8;if(score>bestScore){bestScore=score;best=row}}
- if(best.length>13){let pick=null,bs=-1e9;for(let i=0;i<=best.length-13;i++){const r=best.slice(i,i+13);const ys=r.map(b=>(b.y1+b.y2)/2),spread=Math.max(...ys)-Math.min(...ys);const gaps=[];for(let j=1;j<r.length;j++)gaps.push(r[j].x1-r[j-1].x2);const med=[...gaps].sort((a,b)=>a-b)[Math.floor(gaps.length/2)]||0;const gapPenalty=gaps.slice(0,-1).reduce((q,g)=>q+Math.max(0,g-med*2),0);const s=-spread*4-gapPenalty+r.reduce((q,b)=>q+b.score,0)*5;if(s>bs){bs=s;pick=r}}best=pick||best.slice(0,13)}
+function parseDetectorOutput(data,dims){let C,N,get;if(dims.length!==3)throw new Error('検出モデル出力形式が未対応です');if(dims[1]<dims[2]){C=dims[1];N=dims[2];get=(c,n)=>data[c*N+n]}else{N=dims[1];C=dims[2];get=(c,n)=>data[n*C+c]}const boxes=[];for(let n=0;n<N;n++){let score=C===5?get(4,n):-Infinity;if(C>5){for(let c=4;c<C;c++)score=Math.max(score,get(c,n))}if(score<.05)continue;const cx=get(0,n),cy=get(1,n),w=get(2,n),h=get(3,n);if(w<12||h<18)continue;boxes.push({x1:cx-w/2,y1:cy-h/2,x2:cx+w/2,y2:cy+h/2,score})}return nms(boxes,.38)}
+function selectHand(boxes){if(!boxes.length)return[]; const valid=boxes.filter(b=>{const w=b.x2-b.x1,h=b.y2-b.y1,cy=(b.y1+b.y2)/2;return h>14&&w>7&&h/w>.35&&h/w<5.5&&cy>150}); if(!valid.length)return[]; let best=[],bestScore=-1e9;for(const seed of valid){const cy=(seed.y1+seed.y2)/2,hh=seed.y2-seed.y1;let row=valid.filter(b=>Math.abs(((b.y1+b.y2)/2)-cy)<Math.max(44,hh*.95)&&Math.abs((b.y2-b.y1)-hh)<Math.max(48,hh*1.05));row=nms(row,.25).sort((a,b)=>a.x1-b.x1);if(row.length<4)continue;const ys=row.map(b=>(b.y1+b.y2)/2),spread=Math.max(...ys)-Math.min(...ys);const lower=ys.reduce((a,b)=>a+b,0)/ys.length;const score=row.length*150+lower-spread*2+row.reduce((q,b)=>q+b.score,0)*10;if(score>bestScore){bestScore=score;best=row}}
+ if(best.length>13){let pick=null,bs=-1e9;for(let i=0;i<=best.length-13;i++){const r=best.slice(i,i+13);const ys=r.map(b=>(b.y1+b.y2)/2),spread=Math.max(...ys)-Math.min(...ys);const s=-spread*2+r.reduce((q,b)=>q+b.score,0)*8;if(s>bs){bs=s;pick=r}}best=pick||best.slice(0,13)}
  return best.sort((a,b)=>a.x1-b.x1)
+}
+function mleagueFixedBoxes(img){
+  const x0=img.width*0.33, x1=img.width*0.80, y0=img.height*0.37, y1=img.height*0.72;
+  const totalW=x1-x0, gap=totalW*0.004, tileW=(totalW-gap*12)/13;
+  const boxes=[];
+  for(let i=0;i<13;i++){const a=x0+i*(tileW+gap);boxes.push({x1:a,y1:y0,x2:a+tileW,y2:y1,score:0.01});}
+  return boxes;
 }
 function modelBoxToImage(b,meta,img){const {sc,ox,oy}=meta;const clamp=(v,a,z)=>Math.max(a,Math.min(z,v));let x1=(b.x1-ox)/sc,y1=(b.y1-oy)/sc,x2=(b.x2-ox)/sc,y2=(b.y2-oy)/sc;const w=x2-x1,h=y2-y1;const px=w*.06,py=h*.05;return {x1:clamp(x1-px,0,img.width),y1:clamp(y1-py,0,img.height),x2:clamp(x2+px,0,img.width),y2:clamp(y2+py,0,img.height),score:b.score}}
 function prepClassifier(img,b){const S=64,c=document.createElement('canvas');c.width=S;c.height=S;const ctx=c.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,S,S);const sw=Math.max(1,b.x2-b.x1),sh=Math.max(1,b.y2-b.y1);const scale=Math.min(58/sw,58/sh),dw=sw*scale,dh=sh*scale,dx=(S-dw)/2,dy=(S-dh)/2;ctx.drawImage(img,b.x1,b.y1,sw,sh,dx,dy,dw,dh);const d=ctx.getImageData(0,0,S,S).data;const arr=new Float32Array(3*S*S);for(let i=0;i<S*S;i++){arr[i]=d[i*4]/255-.5;arr[S*S+i]=d[i*4+1]/255-.5;arr[2*S*S+i]=d[i*4+2]/255-.5}return new ort.Tensor('float32',arr,[1,3,S,S])}
 function softmaxMax(data){let mx=-Infinity,idx=-1;for(let i=0;i<data.length;i++){if(data[i]>mx){mx=data[i];idx=i}}let sum=0;for(let i=0;i<data.length;i++)sum+=Math.exp(data[i]-mx);return {idx,conf:1/sum}}
 async function classifyOne(img,b){const tensor=prepClassifier(img,b);const out=await classifierSession.run({[classifierSession.inputNames[0]]:tensor});const o=out[classifierSession.outputNames[0]];const r=softmaxMax(o.data);return {label:CLASSIFIER_LABELS[r.idx]||'none',conf:r.conf}}
-async function recognize(img){await ensureSessions();setStatus('牌の位置を検出しています…','warn');bar.style.width='46%';const p=prepDetector(img);const out=await detectorSession.run({[detectorSession.inputNames[0]]:p.tensor});const o=out[detectorSession.outputNames[0]];const all=parseDetectorOutput(o.data,o.dims);const row=selectHand(all);if(!row.length){hand=[];renderHand();throw new Error('手牌列を検出できませんでした')}
- const imageBoxes=row.map(b=>modelBoxToImage(b,p,img));setStatus(`牌候補を ${imageBoxes.length}枚検出しました。牌種を判定中…`,'warn');bar.style.width='60%';const results=[];for(let i=0;i<imageBoxes.length;i++){const r=await classifyOne(img,imageBoxes[i]);results.push(r);bar.style.width=(60+35*(i+1)/imageBoxes.length)+'%'}
- hand=results.filter(r=>r.label!=='none'&&r.label!=='back').map(r=>r.label);renderHand();bar.style.width='100%';setTimeout(()=>bar.style.width='0%',700);const conf=results.length?Math.round(results.reduce((q,r)=>q+r.conf,0)/results.length*100):0;if(hand.length===13)setStatus(`13枚を認識しました（平均信頼度 ${conf}%）。右端の離れた牌も同じ列として処理しています。`,'ok');else setStatus(`牌候補 ${imageBoxes.length}枚／牌種として ${hand.length}枚を認識しました。13枚になるよう下で修正してください。`,'err')}
+async function recognize(img){await ensureSessions();setStatus('牌の位置を検出しています…','warn');bar.style.width='46%';const p=prepDetector(img);const out=await detectorSession.run({[detectorSession.inputNames[0]]:p.tensor});const o=out[detectorSession.outputNames[0]];const all=parseDetectorOutput(o.data,o.dims);let row=selectHand(all);let imageBoxes=[];let usedFallback=false;if(row.length>=8){imageBoxes=row.map(b=>modelBoxToImage(b,p,img));}else{imageBoxes=mleagueFixedBoxes(img);usedFallback=true;}setStatus(usedFallback?`通常検出は ${row.length}枚でした。Mリーグ固定レイアウト補助認識で13分割して牌種を判定中…`:`牌候補を ${imageBoxes.length}枚検出しました。牌種を判定中…`,'warn');bar.style.width='60%';const results=[];for(let i=0;i<imageBoxes.length;i++){const r=await classifyOne(img,imageBoxes[i]);results.push(r);bar.style.width=(60+35*(i+1)/imageBoxes.length)+'%'}
+ hand=results.filter(r=>r.label!=='none'&&r.label!=='back').map(r=>r.label);renderHand();bar.style.width='100%';setTimeout(()=>bar.style.width='0%',700);const conf=results.length?Math.round(results.reduce((q,r)=>q+r.conf,0)/results.length*100):0;if(hand.length===13)setStatus(`13枚を認識しました（平均信頼度 ${conf}%${usedFallback?'・Mリーグ固定レイアウト補助認識':''}）。`,'ok');else setStatus(`${usedFallback?'固定レイアウト補助認識':'通常検出'}で牌候補 ${imageBoxes.length}枚／牌種として ${hand.length}枚を認識しました。13枚になるよう下で修正してください。`,'err')}
 
 // --- Mahjong shanten / ukeire ---
 function idx(t){const n=t[0]==='0'?5:+t[0],s=t[1];if(s==='m')return n-1;if(s==='p')return 9+n-1;if(s==='s')return 18+n-1;return 27+n-1}
